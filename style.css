@@ -415,9 +415,12 @@ h1 {
         height: 75vh;  
     }
     .card {
-        transform: scale(0.25); /* Smaller scale for small screens */
-        animation-name: spinCardSmall; /* Define a different animation for small screens if needed */
+       
     }
+	.card-about{
+  transform: scale(0.25); /* Smaller scale for small screens */
+        animation-name: spinCardSmall; /* Define a different animation for small screens if needed */
+}
 
     @keyframes spinCardSmall {
         from {
@@ -427,6 +430,10 @@ h1 {
             transform: rotateY(360deg) scale(0.25);
         }
     }
+
+
+
+	
     .navbar,
 	body {
 		padding: 10px
