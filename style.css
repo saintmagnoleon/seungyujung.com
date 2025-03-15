@@ -325,6 +325,8 @@ h1 {
 
     .card-container {
         height: 70vh;  
+        transform: rotate(90deg);
+
     }
     .card {
         transform: scale(0.2); /* Smaller scale for small screens */
