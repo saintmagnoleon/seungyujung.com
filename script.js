@@ -37,7 +37,7 @@ if (document.addEventListener("DOMContentLoaded", (() => {
         sessionStorage.getItem("startTime") || sessionStorage.setItem("startTime", Date.now()), setInterval((function() {
             const e = sessionStorage.getItem("startTime"),
                 t = Math.floor((Date.now() - e) / 1e3);
-            document.getElementById("timer").innerText = `You've been lingering here for ${t} seconds.`
+            document.getElementById("timer").innerText = `You've been here for ${t} seconds.`
         }), 1e3)
     }, window.onbeforeunload = function() {
         sessionStorage.removeItem("startTime")
@@ -59,7 +59,7 @@ if (document.addEventListener("DOMContentLoaded", (() => {
         e.style.opacity = 0, setTimeout((function() {
             e.style.display = "none", t.style.display = "block"
         }), 500)
-    })), window.innerWidth <= 1920) {
+    })), window.innerWidth = 0) {
     let e = 0;
     const t = document.querySelector(".navbar");
     window.addEventListener("scroll", (function() {
@@ -70,5 +70,5 @@ if (document.addEventListener("DOMContentLoaded", (() => {
 
 
 document.querySelectorAll('.cardabout, .card').forEach(el => 
-    el.addEventListener('click', () => window.location.href = el.classList.contains('cardabout') ? "index.html" : "about.html")
+    el.addEventListener('click', () => window.location.href = el.classList.contains('cardabout') ? "profile.html" : "index.html")
 );
