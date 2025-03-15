@@ -186,32 +186,6 @@ h1 {
 
 
 
-.media-gallery {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-	gap: 10px;
-	margin: 0;
-}
-
-.media-gallery img,
-.media-gallery video {
-	width: 100%;
-	height: auto;
-	object-fit: cover;
-	cursor: pointer;
-	display: block;
-	transition: transform .3s ease-in-out;
-	border-radius: 5px;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-	image-rendering: -webkit-optimize-contrast !important;
-	image-rendering: optimizeQuality !important
-}
-
-.media-gallery img:hover,
-.media-gallery video:hover {
-	transform: scale(1.02)
-}
-
 .close,
 .name {
 	border-radius: 5px;
@@ -368,62 +342,9 @@ h1 {
 
 
 
-
-
-.card-about{
-    perspective: 1000px;
-    display: flex;  
-    align-items: center;
-    justify-content: center;
-    height: 80vh;  
-    background: #ffffff
-}
-
-.cardabout {
-    position: relative;
-	-webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d; 
-    transform: scale(0.4);
-	-webkit-animation: spinCard 30s infinite linear;
-    animation: spinCard 30s infinite linear  
-}
-
-.cardabout-front, .cardabout-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;  
-}
-
-.cardabout-front {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: white;  
-}
-
-.cardabout-back {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgb(255, 255, 255);  
-    transform: rotateY(180deg);  
-}
-
-@keyframes spinCard {
-    from {
-		-webkit-transform: rotateY(0deg) scale(0.4) ;
-        transform: rotateY(0deg) scale(0.4);
-    }
-    to {
-		-webkit-transform: rotateY(360deg) scale(0.4);
-        transform: rotateY(360deg) scale(0.4);
-    }
-}
-
 /* 🎯 Pause animation on hover and enlarge */
 .card:hover {
-    
+
     animation-play-state: paused; /* Pause spinning while hovered */
 }
 
@@ -432,6 +353,16 @@ h1 {
 
 
 @media (max-width: 768px) {
+
+    .profile-pic {
+        margin-top: 100px;
+        width: 200px;  /* Adjust size */
+        height: 200px; /* Square */
+        object-fit: cover;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+    
     .card-container {
         height: 70vh;  
     }
@@ -502,49 +433,9 @@ h1 {
 		display: none
 	}
 
-	.arrow {
-		font-size: 18px
-	}
-	
-	.media-gallery {
-		grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-		padding-top: 0px;
-		-webkit-overflow-scrolling: touch
-	}
-	.media-gallery img:hover,
-	.media-gallery video:hover {
-	transform: none
-}
-
-.archive-section ul {
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Creates responsive columns */
-  }
-
-
-.archive-section li img {
-    width: 160px; /* Sets a consistent image size */
-	margin-bottom: 5px; /* Adds spacing below the image */
-
-
-}
-.archive-section li a {
-
-    font-size: 18px; /* Adjusts text size */
-
-
-}
-
-.archive-section img:hover{
-	transform: none
-}
-.lightbox-text h2,
-.lightbox-text p {
-
-	font-size: 14px;
 }
 
 
-}
 
 @media (max-height:480px) {
 
