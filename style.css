@@ -801,6 +801,11 @@ h1 {
     border: none;
   }
 
+  .instagram-container {
+    display: flex;
+    justify-content: center;
+  }
+
 
 
 
