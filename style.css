@@ -397,6 +397,15 @@ p {
     margin-top: 10px;
 }
 
+.responsive-video-availableforall {
+    width: 100%;  /* Makes the video take the full width of its container */
+    max-width: 810px;  /* Limits the maximum width */
+    height: auto;  /* Keeps aspect ratio */
+    display: block;  /* Prevents extra spacing issues */
+    margin: 0 auto;  /* Centers the video */
+    margin-top: 10px;
+}
+
 .image-thumbnail-alternative-article{
     display: none !important;
 }
@@ -780,7 +789,7 @@ h1 {
     aspect-ratio: 16 / 9;   /* preserve aspect ratio */
 }
   
-  .video-wrapper iframe {
+.video-wrapper iframe {
     width: 100%;
     height: 100%;
     border: none;
