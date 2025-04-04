@@ -774,15 +774,14 @@ h1 {
 
 
 
-
 .video-wrapper {
     position: relative;
     padding-bottom: 56.25%; /* 16:9 aspect ratio */
     height: 0;
     overflow: hidden;
-    max-width: 100%;
-    margin: 0 auto; /* Centers the video */
-  }
+    max-width: 560px; /* 👈 Size it down here */
+    margin: 0 auto; /* Center it horizontally */
+}
   
   .video-wrapper iframe {
     position: absolute;
@@ -791,7 +790,6 @@ h1 {
     height: 100%;
     border: none;
 }
-
 .instagram-container {
     display: flex;
     justify-content: center;   
@@ -889,6 +887,12 @@ h1 {
 
     .grid-video{
         display: none !important;
+    }
+
+    .video-wrapper {
+        max-width: 100%;
+        padding-bottom: 56.25%;
+        margin: 10px auto;
     }
    
 
