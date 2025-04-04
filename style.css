@@ -44,7 +44,6 @@ header {
     height: 48px;
     background: rgba(169, 169, 255, 0.28); /* Change to your preferred color */
     z-index: 4000;
-    transition: width 0.2s linear;
 }
 
 
