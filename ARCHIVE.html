@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARCHIVE</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="FOOTAGE/favicon.png">
+
+  
+</head>
+<body>
+    <div id="page-loader"></div>
+    <div id="content" style="display:none;">
+    <button id="menu-button">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </button>
+    
+    <div id="menu">
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="ARCHIVE.html">ARCHIVE</a></li>
+            <li><a href="ABOUT.html">ABOUT</a></li>
+        </ul>
+    </div>
+    <header>
+        <a href="index.html" class="header-link">seungyu jung jeon .</a>
+    </header>
+    <input type="text" id="search-bar" placeholder="search archives...">
+    <div id="archive-container"></div>
+
+    <div id="archive">
+    <div id="archive-container"></div>
+    </div>
+
+    <script>
+        function searchKeyword() {
+            clearSearch();
+            
+            const searchTerm = document.getElementById('searchInput').value.trim();
+            if (!searchTerm) return;
+            
+            const regex = new RegExp(searchTerm, 'gi');
+            const walker = document.createTreeWalker(
+                document.getElementById('content'),
+                NodeFilter.SHOW_TEXT,
+                null,
+                false
+            );
+            
+            let node;
+            while (node = walker.nextNode()) {
+                if (node.nodeValue.trim() && regex.test(node.nodeValue)) {
+                    const span = document.createElement('span');
+                    span.innerHTML = node.nodeValue.replace(regex, 
+                        match => `<span class="highlight">${match}</span>`
+                    );
+                    node.parentNode.replaceChild(span, node);
+                }
+            }
+        }
+        
+        function clearSearch() {
+            const highlights = document.querySelectorAll('.highlight');
+            highlights.forEach(highlight => {
+                const text = document.createTextNode(highlight.textContent);
+                highlight.parentNode.replaceChild(text, highlight);
+            });
+        }
+        </script>
+
+   
+ 
+<div id="timer" style="position: fixed; top: 0; right: 0; padding: 10px; background: transparent; color: #939393; font-size: 12px; z-index: 1000;" > </div>
+<div id=click-counter style=position:fixed;top:0;right:-15px;padding:25px;background-color:transparent;color:#939393;font-size:12px;z-index:1000>You clicked 0 times.</div>
+    <div id="footer" style="position: fixed; bottom: 0; right: 0px; padding: 5px; background: transparent; color: rgb(0, 0, 0); font-style: italic; font-size: 9px; z-index: 1000;">Developped by Seungyu Jung</div>
+    <script src="script.js"></script> 
+</body>
+</html>
