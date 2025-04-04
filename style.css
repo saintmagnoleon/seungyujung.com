@@ -246,7 +246,7 @@ header {
     object-fit: cover;
 }
 
-.image-thumbnail-alternative {
+.image-thumbnail-alternative-index {
     display: none !important; 
 }
 
@@ -395,15 +395,12 @@ p {
     display: block;  /* Prevents extra spacing issues */
     margin: 0 auto;  /* Centers the video */
     margin-top: 10px;
-    border-radius: 15px; /* Adjust the value for more or less rounding */
-    overflow: hidden; /* Ensures the rounded corners apply correctly */
 }
 
+.image-thumbnail-alternative-article{
+    display: none !important;
+}
 
-
-
-
-/*UPDATE ON ALL HTML PROMPTS*/
 .image-footer-container {
     display: grid;
     grid-template-rows: auto auto; /* Two rows: one for image, one for footer */
@@ -423,6 +420,7 @@ p {
     font-style: italic;
     color: #555;
     white-space: nowrap; /* Prevents wrapping */
+    padding-bottom: 10px;
 }
 
 
@@ -791,9 +789,7 @@ h1 {
 .instagram-container {
     display: flex;
     justify-content: center;
-    padding: 20px; 
   }
-  
 
 
 
@@ -874,7 +870,7 @@ h1 {
         padding-top: 80px;
     }
 
-    .image-thumbnail-alternative{    
+    .image-thumbnail-alternative-index{    
         width: 100%;
         height: auto; 
         aspect-ratio: 1/1;
@@ -892,17 +888,30 @@ h1 {
         margin: 10px auto;
     }
 
-    @media (max-width: 600px) {
-        .instagram-container {
+
+    .instagram-container {
           flex-direction: column;
           align-items: center;
-        }
+    }
       
-        .instagram-container iframe {
+    .instagram-container iframe {
           width: 100% !important;
           max-width: 360px; /* typical phone width */
-        }
-      }
-   
+    }
+
+    .responsive-video{
+            display: none;
+    }
+    
+    .image-thumbnail-alternative-article{
+            max-width: 100%;
+            height: auto;
+            margin: 15px 0;
+            display:block !important;
+    }
+    
+
 
 }
+    
+    
