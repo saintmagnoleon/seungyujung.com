@@ -788,7 +788,12 @@ h1 {
     border: none;
 }
   
-
+.instagram-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px; 
+  }
+  
 
 
 
@@ -886,6 +891,18 @@ h1 {
         width: 95%;
         margin: 10px auto;
     }
+
+    @media (max-width: 600px) {
+        .instagram-container {
+          flex-direction: column;
+          align-items: center;
+        }
+      
+        .instagram-container iframe {
+          width: 100% !important;
+          max-width: 360px; /* typical phone width */
+        }
+      }
    
 
 }
