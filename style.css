@@ -1091,7 +1091,7 @@ h1 {
     }
 
     .grid-container {
-        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));  /*it was 380 before*/
+        grid-template-columns: repeat(1, 1fr);    
     }
 
     .overlay {
