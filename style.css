@@ -332,6 +332,7 @@ header {
     margin: 0;
     text-align: left;
     font-size: 25px;
+    font-weight: bold;
 }
 
 .bottom-left-text .p2 {
@@ -1101,7 +1102,7 @@ h1 {
 
     .overlay h3 {
         margin: 0;
-        font-size: 32px;
+        font-size: 35px;
         text-align: left;
         align-self: flex-start;
     }
@@ -1119,7 +1120,17 @@ h1 {
     .credit-text{
         font-size: 15px;
     }
+    .grid-item img {
+        aspect-ratio: 5/8 !important;
+    }
     
+    .grid-video{
+        width: 100%;
+        height: auto; 
+        aspect-ratio: 1/1;
+        display: block;
+        object-fit: cover;
+    }
 }
     
 @media (min-width: 2160px) {
