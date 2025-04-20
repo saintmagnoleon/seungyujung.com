@@ -331,7 +331,7 @@ header {
 .bottom-left-text p {
     margin: 0;
     text-align: left;
-    font-size: 25px;
+    font-size: 16px;
     font-weight: bold;
 }
 
@@ -1111,6 +1111,7 @@ h1 {
         margin: 0;
         text-align: left;
         font-size: 15px;
+        font-weight: bold;
     }
 
     .credits{
