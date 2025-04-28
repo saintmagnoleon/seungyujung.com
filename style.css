@@ -414,15 +414,14 @@ header {
     margin: 80px auto 10px auto; /* top: 50px, right/left: auto, bottom: 20px */
     display: block;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 0px;
     font-size: 16px;
     outline: none;
-    transition: all 0.3s ease-in-out;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 #search-bar:focus {
-    border-color: #d9ff00;
+    border-color: #fbff00;
     box-shadow: 0px 2px 8px rgba(234, 255, 3, 0.524);
 }
 
@@ -490,6 +489,7 @@ header {
 .about-image {
     max-width: 100%;
     height: auto;
+    padding-top: 25px;
 }
 
 .video-container
@@ -686,7 +686,7 @@ header {
     cursor: pointer;
     display: block;
     transition: transform .3s ease-in-out;
-    border-radius: 5px;
+    border-radius: 0px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     image-rendering: -webkit-optimize-contrast !important;
     image-rendering: optimizeQuality !important;
@@ -717,7 +717,7 @@ header {
 	cursor: pointer;
 	display: block;
 	transition: transform .3s ease-in-out;
-	border-radius: 5px;
+	border-radius: 0px;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 	image-rendering: -webkit-optimize-contrast !important;
 	image-rendering: optimizeQuality !important
