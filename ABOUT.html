@@ -10,6 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Homemade+Apple&family=Special+Elite&display=swap" rel="stylesheet">
 </head>
+
+
+
 <body>
     <div id="progress-bar"></div>
     <div id="page-loader"></div>
@@ -36,32 +39,34 @@
     <div class="header-background-color"></div>   
    
 
-    <div class="about-container">
-        <h1 class="about-title">ME. 나.</h1>
 
-        <p class="about-meta">May 21, 2025. 10:00</p>
+    <section class="welcome-section">
+        <div class="left-half">
+          <div class="left-content">
+            <h1 class="page-title">ME. 나.</h1>
+            <p class="page-subheading">May 21, 2025. 10:00</p>
 
+            <p class="main-text">Seungyu Jung Jeon is The Uncertified Publisher, under the alias of saintmagnoleon and founder of While I’m Conscious (WIC). 
 
-        <p class="about-text">
-            Seungyu Jung Jeon is The Uncertified Publisher, under the alias of saintmagnoleon and founder of While I’m Conscious (WIC). 
-
-            Currently 19 years old based in Paris, the Korean-Spanish artist is establishing progressively in his own self-endeavour. Releasing his latest issue magazine, WIC’s 3rd issue is another failure yet a big step to reach his own glory. 
-            
-            Seungyu’s art and criticism offers a deep dive of the intricacies that simple words cannot expresse, yet its simplicity helps an easy decoding of his own work. 
-            Currently heavily inspired by Gabriel Moses, Federico Sargentone, Pascal Monfort, Slawn, my parents, my grandma and my wife. 
-
-Saintmagnoleon is aspired to publish magazines, to print more print, to shoot more in analog, and so on. Indeed, his strength is the ambition, side by side, it’s also his biggest weakness. Furthermore, he’s eager to cooperate with any kind of artist that feel they need to make art.
-
-        </p>
-
-        <p class="about-text"> 
-            For all requests, contact him at: <a href="mailto:callseungyuforhelp@gmail.com. " style="color: blue; text-decoration: underline;">
-                callseungyuforhelp@gmail.com</a> 
-         </p>
-
-     
-
-
+                Currently 19 years old based in Paris, the Korean-Spanish artist is establishing progressively in his own self-endeavour. Releasing his latest issue magazine, WIC’s 3rd issue is another failure yet a big step to reach his own glory. 
+                
+                Seungyu’s art and criticism offers a deep dive of the intricacies that simple words cannot expresse, yet its simplicity helps an easy decoding of his own work. 
+                Currently heavily inspired by Gabriel Moses, Federico Sargentone, Pascal Monfort, Slawn, my parents, my grandma and my wife. 
+    
+                Saintmagnoleon is aspired to publish magazines, to print more print, to shoot more in analog, and so on. Indeed, his strength is the ambition, side by side, it’s also his biggest weakness. Furthermore, he’s eager to cooperate with any kind of artist that feel they need to make art.
+            <p class="main-text"> 
+                For all requests, contact him at: 
+                <a href="mailto:callseungyuforhelp@gmail.com. " style="color: blue; text-decoration: underline;">callseungyuforhelp@gmail.com</a> 
+            </p>
+                
+            </p>
+          </div>
+        </div>
+        <div class="right-half">
+          <div class="image-slider"></div>
+        </div>
+      
+    </section>
 
     <div class="card-container">
         <div class="card">
@@ -94,7 +99,40 @@ Saintmagnoleon is aspired to publish magazines, to print more print, to shoot mo
 
     <div id="timer" style="position: fixed; top: 0; right: 0; padding: 10px; background: transparent; color: #939393; font-size: 12px; z-index: 9999;" > </div>
     <div id=click-counter style=position:fixed;top:0;right:-15px;padding:25px;background-color:transparent;color:#939393;font-size:12px;z-index:9999>You clicked 0 times.</div>
-    <div id="footer" style="position: fixed; bottom: 0; right: 0px; padding: 5px; background: transparent; color: rgb(0, 0, 0); font-style: italic; font-size: 9px; z-index: 9999;">Developped by Seungyu Jung</div>    
+    <div id="footer" style="position: fixed; bottom: 0; right: 0px; padding: 5px; background: transparent; color: rgb(0, 0, 0); font-style: italic; font-size: 9px; z-index: 9999;">Developped by Seungyu Jung</div>
+    
+    <script>
+        const images = [
+          'FOOTAGE/IMAGE/ABOUTME/me1.jpg',
+          'FOOTAGE/IMAGE/ABOUTME/me2.jpg',
+          'FOOTAGE/IMAGE/ABOUTME/me4.jpg',
+          'FOOTAGE/IMAGE/ABOUTME/me5.jpg',
+          'FOOTAGE/IMAGE/ABOUTME/me6.jpg',
+          'FOOTAGE/IMAGE/ABOUTME/me7.jpg',
+
+        ];
+      
+        let currentImageIndex = 0;
+        const slider = document.querySelector('.image-slider');
+      
+        function changeImage() {
+          slider.style.opacity = 0;
+      
+          setTimeout(() => {
+            slider.style.backgroundImage = `url(${images[currentImageIndex]})`;
+            slider.style.opacity = 1;
+          }, 1000); // match this to the CSS transition
+      
+          currentImageIndex = (currentImageIndex + 1) % images.length;
+        }
+      
+        // Set initial image
+        slider.style.backgroundImage = `url(${images[0]})`;
+      
+        // Change image every 5 seconds
+        setInterval(changeImage, 5000);
+    </script>
+
     <script src="script.js"></script> 
 </body>
 </html>
