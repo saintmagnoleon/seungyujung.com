@@ -2,7 +2,7 @@ body,html{
     height:auto;
     font-weight:lighter;
     margin:0;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, Helvetica, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: #ffffff; 
     font-weight: lighter; 
 }
@@ -268,7 +268,6 @@ header {
     width: 100%;
     background-color: rgb(255, 255, 255);
     overflow: hidden;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
   
   .left-half,
@@ -389,7 +388,6 @@ header {
     position: absolute;
     bottom: 10px;
     left: 10px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: lighter;
 
 
@@ -1251,58 +1249,6 @@ h1 {
     .grid-container {
         grid-template-columns: repeat(auto-fill, minmax(1000px, 1fr)); 
     }
-
-
-    .welcome-section {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  background-color: white;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  overflow: hidden;
-}
-
-/* 1:1 Aspect Ratio Container for the Image */
-.image-container {
-  width: 100%;
-  aspect-ratio: 1 / 1; /* Ensures square shape */
-  position: relative;
-  overflow: hidden;
-}
-
-.image-slider {
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  animation: fadeInOut 8s infinite;
-  transition: opacity 1s ease-in-out;
-}
-
-/* Text Section */
-.text-content {
-  padding: 2rem;
-  text-align: center;
-  color: black;
-}
-
-.page-title {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  animation: fadeInOut 6s infinite;
-}
-
-.main-text {
-  font-size: 1.2rem;
-  animation: fadeInOut 10s infinite;
-}
-
-@keyframes fadeInOut {
-  0%, 100% { opacity: 0; }
-  50% { opacity: 1; }
-}
-
-  
 }
 
 @media (max-height: 480px) {
