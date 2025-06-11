@@ -9,6 +9,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Homemade+Apple&family=Special+Elite&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Doto:wght@100..900&family=Homemade+Apple&family=PT+Sans+Narrow:wght@400;700&family=Special+Elite&display=swap" rel="stylesheet">
+
+
+
 </head>
 <body>
     <div id="page-loader"></div>
@@ -33,7 +40,7 @@
 
 
 
-    <input type="text" id="search-bar" placeholder="SEARCH ARCHIVE">
+    <input type="text" id="search-bar" placeholder="search...">
     <div id="archive-container"></div>
 
     <div id="archive">
@@ -43,35 +50,28 @@
     <script>
         function searchKeyword() {
             clearSearch();
-            
+        
             const searchTerm = document.getElementById('searchInput').value.trim();
             if (!searchTerm) return;
-            
+        
             const regex = new RegExp(searchTerm, 'gi');
-            const walker = document.createTreeWalker(
-                document.getElementById('content'),
-                NodeFilter.SHOW_TEXT,
-                null,
-                false
-            );
-            
-            let node;
-            while (node = walker.nextNode()) {
-                if (node.nodeValue.trim() && regex.test(node.nodeValue)) {
-                    const span = document.createElement('span');
-                    span.innerHTML = node.nodeValue.replace(regex, 
-                        match => `<span class="highlight">${match}</span>`
-                    );
-                    node.parentNode.replaceChild(span, node);
-                }
-            }
+        
+            const elements = document.querySelectorAll('.archive-title, .archive-content');
+            elements.forEach(el => {
+                const originalText = el.textContent;
+                const highlighted = originalText.replace(regex, match =>
+                    `<span class="highlight">${match}</span>`
+                );
+                el.innerHTML = highlighted;
+            });
         }
         
         function clearSearch() {
             const highlights = document.querySelectorAll('.highlight');
-            highlights.forEach(highlight => {
-                const text = document.createTextNode(highlight.textContent);
-                highlight.parentNode.replaceChild(text, highlight);
+            highlights.forEach(span => {
+                const parent = span.parentNode;
+                parent.replaceChild(document.createTextNode(span.textContent), span);
+                parent.normalize();
             });
         }
         </script>

@@ -2,9 +2,13 @@ body,html{
     height:auto;
     font-weight:lighter;
     margin:0;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: "Archivo Narrow", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;    
     background-color: #ffffff; 
     font-weight: lighter; 
+    
 }
 
 header {
@@ -167,96 +171,86 @@ header {
 
 
 
-
-/*ARCHIVE LIST*/
+/* ARCHIVE LIST */
 #archive-container {
-    margin: 15px auto;
-    max-width: 800px; /* Adjust width as needed */
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
 }
 
+.archive-year {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    border-bottom: 1px solid #000;
+    padding-bottom: 0.5rem;
+    text-align: left;
+    font-family: "Doto", sans-serif;
+    font-weight: 500;
+}
+
+/* Grid for archive items */
+.archive-year + div {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    
+}
 
 .archive-item {
     display: flex;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 10px;
+    flex-direction: column;
+    position: relative;
+    text-decoration: none; /* Removes underline from link */
+    color: inherit;
+}
+
+.archive-title .highlight,
+.archive-content .highlight {
+    text-decoration: none;  /* Prevent underlines inside highlighted text */
+    background-color: yellow; /* or whatever highlight style you want */
+    color: inherit;
+}
+
+.archive-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
 }
 
 .archive-thumbnail {
-    width: 130px;
-    height: auto;
-    margin-right: 15px;
-    border-radius: 10px;
-    aspect-ratio: 1/1;
-
-}
-
-.archive-thumbnail img {
     width: 100%;
-    height: auto;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
+    display: block;
+    flex-shrink: 0;
+    border-radius: 5px;
 }
 
-
-.archive-info {
-    flex-grow: 1;
-}
-
+/* Title and description */
 .archive-title {
+    margin: 0.75rem 0 0 0.5rem;
+    font-size: 1rem;
     font-family: "Doto", sans-serif;
-    font-optical-sizing: auto;
     font-weight: 500;
-    font-style: normal;
-    font-variation-settings:
-      "ROND" 0;
-    font-size: 25px;
-    font-weight: bold;
     color: #0000ff;
-    cursor: pointer;
-}
-
-.archive-year{
-    font-size: 35px;
-}
-
-.archive-title:hover {
-    text-decoration: underline;
-    cursor: pointer;
-    color: #ffbf00;
 }
 
 .archive-content {
-    margin-top: 0px;
-    font-size: 20px;
-    padding-bottom: 40px;
+    margin: 0.25rem 0 0 0.5rem;
+    font-size: 0.9rem;
+    color: #444;
 }
 
-.hidden {
-    display: none;
+.archive-date {
+    position: absolute;
+    bottom: 0px;
+    right: 0.5rem;
+    font-size: 0.65rem;
+    color: #999;
+    font-style: italic;
 }
-
-
-.view-more {
-    display: block;
-    margin-top: 0px;
-    color: #ff0000;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 30px;
-}
-
-.view-more:hover {
-    text-decoration: underline;
-    cursor: pointer;
-
-}
-
-.hidden {
-    display: none; /*Only appears when expanded "view more"*/
-}
-
 
 
 
@@ -475,7 +469,7 @@ header {
     margin: 80px auto 10px auto; /* top: 50px, right/left: auto, bottom: 20px */
     display: block;
     border: 1px solid #ccc;
-    border-radius: 0px;
+    border-radius: 10px;
     font-size: 16px;
     outline: none;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
@@ -535,6 +529,7 @@ header {
     margin-top: 10px;
     margin-bottom: 10px;
     text-align: justify;
+    font-weight:lighter !important;
 }
 
 .about-text-italic {
@@ -1021,6 +1016,21 @@ h1 {
 
 @media (max-width: 768px) {
 
+    .archive-date {
+    font-size: 8px;
+    }
+    
+
+    .archive-title {
+        font-size: 12px;
+        color: #0000ff;
+
+    }
+
+    .archive-year + div {
+        grid-template-columns: repeat(2, 1fr);    
+    }
+
     .welcome-section {
         flex-direction: column;
         height: auto; /* Let it grow vertically */
@@ -1111,12 +1121,6 @@ h1 {
     }
 
 
-    .archive-title {
-        font-size: 20px;
-        font-weight: bold;
-        color: #0000ff;
-        cursor: pointer;
-    }
 
     .media-container img,
     .media-container video {
@@ -1241,6 +1245,9 @@ h1 {
         aspect-ratio: 9/16 !important;
     }
     
+    .archive-content{
+        font-size: 9px;
+    }
 
 }
     
