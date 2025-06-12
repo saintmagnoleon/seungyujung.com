@@ -201,88 +201,77 @@ const archiveData = [
     { 
         title: "'LA NOUVELLE VAGUE'", 
         year: 2025, 
-        date: "12.04.2025",
-        content: "70*100CM", 
+        content: "April 12, 2025", 
         thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/lanouvellevagueinstapost.jpg",
         link: "LA_NOUVELLE_VAGUE.html" 
     },
     { 
         title: "ISSUE #3", 
         year: 2025, 
-        date: "26.03.2025",
-        content: "While I'm Conscious (WIC) 3rd issue.", 
+        content: "March 3, 2025", 
         thumbnail: "FOOTAGE/IMAGE/VIDEO THUMBNAILS/gaelreadingissue3.jpg",
         link: "ISSUE3.html" 
     },
     { 
         title: "RANDOM 2025", 
         year: 2025, 
-        date: "28.03.2025",
-        content: "Seungyu's 2025 random archive.", 
+        content: "March 28, 2025", 
         thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/riodejaneiro.jpg",
         link: "RANDOM2025.html"
     },
     { 
         title: "'ANTHROPOCÈNE'", 
         year: 2024, 
-        date: "19.08.2024",
-        content: "Assisted by Eneko.", 
+        content: "August 19, 2024", 
         thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/eneko.avif",
         link: "ANTHROPOCENE.html" 
     },
     { 
         title: "'BOUQUET DE FLEURS'", 
         year: 2024, 
-        date: "25.05.2024",
-        content: "LUV U LIL SIS.", 
+        content: "May 5, 2024", 
         thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/chaeyu1.avif",
         link: "BOUQUET DE FLEURS.html"
     },
     { 
         title: "'SANS TITRE'", 
         year: 2024, 
-        date: "26.03.2024",
-        content: "Assisted by Milan Pejic.", 
+        content: "March 26, 2024", 
         thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/milan2.avif",
         link: "SANS TITRE.html"
     },
     { 
         title: "'THE BARRACKS'", 
         year: 2024, 
-        date: "26.03.2024",
-        content: "Assisted by R4TPUNKI.", 
+        content: "March 26, 2024", 
         thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/lanouvellevague.avif",
         link: "THE BARRACKS.html"
     },
     { 
         title: "'BLIND-SELF-RELIANCE'", 
         year: 2024, 
-        date: "12.04.2024",
-        content: "Assisted by Diego.", 
+        content: "April 12, 2024", 
         thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/diego.jpg",
         link: "BLIND-SELF-RELIANCE.html" 
     },
     { 
         title: "RANDOM 2024", 
         year: 2024, 
-        date: "31.12.2024",
-        content: "Seungyu's 2024 random archive.", 
+        content: "December 31, 2024", 
         thumbnail: "FOOTAGE/IMAGE/RANDOM 2024/ladybird.jpg",
         link: "RANDOM2024.html" 
     },
     { 
         title: "ISSUE #2", 
         year: 2024, 
-        date: "02.02.2024",
-        content: "While I'm Conscious (WIC) 2nd issue.", 
+        content: "February 2, 2024", 
         thumbnail: "FOOTAGE/IMAGE/VIDEO THUMBNAILS/eyesissue2.jpg",
         link: "ISSUE2.html" 
     },
     { 
         title: "'UN1T' DIRECTED BY SEUNGYU JUNG", 
         year: 2023, 
-        date: "30.05.2023",
-        content: "SENDING LUV TO THE HOMIES.", 
+        content: "May 30, 2023", 
         thumbnail: "FOOTAGE/IMAGE/VIDEO THUMBNAILS/un1t.jpg",
         link: "UN1T.html" 
     }
@@ -329,17 +318,13 @@ function generateArchive() {
             content.classList.add("archive-content");
             content.textContent = item.content;
         
-            const date = document.createElement("span");
-            date.classList.add("archive-date");
-            date.textContent = item.date || item.year; // fallback to year if date is missing
-        
             linkWrapper.appendChild(thumbnail);
             linkWrapper.appendChild(title);
             linkWrapper.appendChild(content);
-            linkWrapper.appendChild(date);
         
             grid.appendChild(linkWrapper);
         });
+
         yearSection.appendChild(grid);
         container.appendChild(yearSection);
     });
