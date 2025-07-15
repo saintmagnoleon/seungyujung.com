@@ -1204,7 +1204,7 @@ h1 {
     }
 
     .grid-container {
-        grid-template-columns: repeat(1, 1fr);    
+        grid-template-columns: repeat(2, 1fr);    
     }
 
     .overlay {
@@ -1214,16 +1214,13 @@ h1 {
 
     .overlay h3 {
         margin: 0;
-        font-size: 35px;
+        font-size: 25px;
         text-align: left;
         align-self: flex-start;
     }
     
     .bottom-left-text p {
-        margin: 0;
-        text-align: left;
-        font-size: 15px;
-        font-weight:normal;
+    display: none;
     }
 
     .credits{
@@ -1233,9 +1230,7 @@ h1 {
     .credit-text{
         font-size: 15px;
     }
-    .grid-item img {
-        aspect-ratio: 9/16 !important;
-    }
+
     
     .archive-content{
         font-size: 9px;
