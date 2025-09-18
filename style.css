@@ -594,6 +594,7 @@ header {
     color: #555;
     overflow-wrap: break-word;    
     padding-bottom: 10px;
+    text-align: right;
 }
 
 
