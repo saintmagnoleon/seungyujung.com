@@ -225,7 +225,7 @@ const archiveData = [
         title: "RANDOM 2025", 
         year: 2025, 
         content: "March 28, 2025", 
-        thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/melookingthroughthewindow.jpg",
+        thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/melookingthruthewindow2.jpg",
         link: "RANDOM2025.html"
     },
     { 
