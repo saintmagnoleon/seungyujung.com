@@ -592,7 +592,7 @@ header {
     font-size: 12px;
     font-style: italic;
     color: #555;
-    white-space: nowrap; /* Prevents wrapping */
+    overflow-wrap: break-word;    
     padding-bottom: 10px;
 }
 
