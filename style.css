@@ -23,7 +23,7 @@ header {
     text-align: center;
     font-family: "Doto", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 500;
+    font-weight: 900;
     font-style: normal;
     font-variation-settings:
       "ROND" 0;
@@ -47,7 +47,7 @@ header {
 }
 
 .header-background-color{
-    background-color: #fbff00; /* Dark blue color */
+    background-color: #000000; /* Dark blue color */
     height: 48px;
     position: fixed; /* Changed from sticky to fixed */
     top: 0;
@@ -121,7 +121,7 @@ header {
     left: -2200px;
     width: 2000px;
     height: 100%;
-    background: #fbff00;
+    background: #000000;
     transition: left 0.3s ease-in-out;
     z-index: 5000;
 

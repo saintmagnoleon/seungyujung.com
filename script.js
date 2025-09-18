@@ -198,6 +198,15 @@ function filterArchive(query) {
 
 
 const archiveData = [
+
+    { 
+        title: "MUTATED JUNGLE", 
+        year: 2025, 
+        content: "June 6, 2025", 
+        thumbnail: "FOOTAGE/IMAGE/MUTATED JUNGLE/homethumbnail.jpg",
+        link: "MUTATED_JUNGLE.html" 
+    },
+
     { 
         title: "'LA NOUVELLE VAGUE'", 
         year: 2025, 
@@ -226,6 +235,15 @@ const archiveData = [
         thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/eneko.avif",
         link: "ANTHROPOCENE.html" 
     },
+
+    { 
+        title: "ACWS", 
+        year: 2024, 
+        content: "May 12, 2024", 
+        thumbnail: "FOOTAGE/IMAGE/ACWS/santi_squared.jpg",
+        link: "ACWS.html" 
+    },
+
     { 
         title: "'BOUQUET DE FLEURS'", 
         year: 2024, 
