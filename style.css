@@ -1254,7 +1254,7 @@ h1 {
         body {
           height: 100vh;
           width: 100vw;
-          background: url('FOOTAGE/errordisplay.jpg') center center / contain no-repeat white !important;
+          background: url('FOOTAGE/smallscreendetector.jpg') center center / contain no-repeat white !important;
           overflow: hidden;
         }
   
