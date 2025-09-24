@@ -1049,8 +1049,8 @@ h1 {
       .right-half .image-slider {
         aspect-ratio: 1 / 1;
         height: auto;
-        scale: 1;
-        margin-bottom: -70px;
+        scale: 0.8;
+        padding-bottom: 50px;
       }
     
       .left-content {
