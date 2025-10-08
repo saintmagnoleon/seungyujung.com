@@ -56,8 +56,6 @@ window.addEventListener("scroll", function() {
 });
 
 
-
-
 // Wait for the DOM to load and add event listeners
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".arrow.left").addEventListener("click", () => changeImage(-1));
@@ -163,11 +161,14 @@ window.addEventListener("load", () => {
 //MENU ICON TRANSITION ANIMATION    
 const menu = document.getElementById("menu");
 const menuButton = document.getElementById("menu-button");
+const body = document.body; // Get the body element
 
 menuButton.addEventListener("click", function() {
     menu.classList.toggle("show");
-    menuButton.classList.toggle("active"); // Toggle the "X" effect
+    menuButton.classList.toggle("active");
+    body.classList.toggle("menu-open"); 
 });
+
 
 document.getElementById("search-bar").addEventListener("input", function () {
     const query = this.value.toLowerCase();
@@ -198,6 +199,14 @@ function filterArchive(query) {
 
 
 const archiveData = [
+
+    { 
+        title: "EXPERIENCED AMATEUR", 
+        year: 2025, 
+        content: "October 2, 2025", 
+        thumbnail: "FOOTAGE/IMAGE/BLUEWALLPHOTOSHOOTCHOISY/leopoldthumbnail.jpg",
+        link: "EXPERIENCED_AMATEUR.html" 
+    },
 
     { 
         title: "MUTATED JUNGLE", 
@@ -311,10 +320,9 @@ function generateArchive() {
         const yearSection = document.createElement("div");
         yearSection.classList.add("archive-year-section");
 
-        const yearTitle = document.createElement("h3");
-        yearTitle.classList.add("archive-year");
-        yearTitle.textContent = year;
-        yearSection.appendChild(yearTitle);
+        const yearHeader = document.createElement("div");
+        yearHeader.classList.add("archive-year-header");
+        yearHeader.textContent = year;
 
         const grid = document.createElement("div");
         grid.classList.add("archive-grid");
@@ -323,29 +331,104 @@ function generateArchive() {
             const linkWrapper = document.createElement("a");
             linkWrapper.href = item.link;
             linkWrapper.classList.add("archive-item");
-        
+
             const thumbnail = document.createElement("img");
             thumbnail.src = item.thumbnail;
             thumbnail.classList.add("archive-thumbnail");
-        
+
             const title = document.createElement("h4");
             title.classList.add("archive-title");
             title.textContent = item.title;
-        
+
             const content = document.createElement("p");
             content.classList.add("archive-content");
             content.textContent = item.content;
-        
+
             linkWrapper.appendChild(thumbnail);
             linkWrapper.appendChild(title);
             linkWrapper.appendChild(content);
-        
             grid.appendChild(linkWrapper);
         });
 
+        // Initially collapsed
+        grid.style.display = "none";
+
+        // Toggle collapse
+        yearHeader.addEventListener("click", () => {
+            const isVisible = grid.style.display === "grid";
+            grid.style.display = isVisible ? "none" : "grid";
+            yearHeader.classList.toggle("open", !isVisible);
+        });
+
+        yearSection.appendChild(yearHeader);
         yearSection.appendChild(grid);
         container.appendChild(yearSection);
     });
 }
-
 document.addEventListener("DOMContentLoaded", generateArchive);
+
+
+function searchKeyword() {
+    clearSearch();
+
+    const searchTerm = document.getElementById('search-bar').value.trim();
+    if (!searchTerm) return;
+
+    const regex = new RegExp(searchTerm, 'gi');
+    const yearSections = document.querySelectorAll('.archive-year-section');
+    const foundInSections = new Set();
+
+    // Highlight matching titles and contents
+    const elements = document.querySelectorAll('.archive-title, .archive-content');
+    elements.forEach(el => {
+        const originalText = el.textContent;
+        if (regex.test(originalText)) {
+            el.innerHTML = originalText.replace(regex, match =>
+                `<span class="highlight">${match}</span>`
+            );
+            foundInSections.add(el.closest('.archive-year-section'));
+        }
+    });
+
+    // Expand sections with matches, collapse others
+    yearSections.forEach(section => {
+        const grid = section.querySelector('.archive-grid');
+        const header = section.querySelector('.archive-year-header');
+        if (foundInSections.has(section)) {
+            grid.style.display = "grid";
+            header.classList.add("open");
+        } else {
+            grid.style.display = "none";
+            header.classList.remove("open");
+        }
+    });
+}
+
+function clearSearch() {
+    // Remove highlights
+    const highlights = document.querySelectorAll('.highlight');
+    highlights.forEach(span => {
+        const parent = span.parentNode;
+        parent.replaceChild(document.createTextNode(span.textContent), span);
+        parent.normalize();
+    });
+
+    // Collapse all sections
+    const yearSections = document.querySelectorAll('.archive-year-section');
+    yearSections.forEach(section => {
+        const grid = section.querySelector('.archive-grid');
+        const header = section.querySelector('.archive-year-header');
+        grid.style.display = "none";
+        header.classList.remove("open");
+    });
+}
+
+// Initialize everything
+document.addEventListener('DOMContentLoaded', () => {
+    generateArchive();
+
+    const searchBar = document.getElementById('search-bar');
+    if (searchBar) {
+        searchBar.addEventListener('input', searchKeyword);
+    }
+});

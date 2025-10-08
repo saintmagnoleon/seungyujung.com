@@ -1,14 +1,25 @@
-body,html{
-    height:auto;
-    font-weight:lighter;
-    margin:0;
+/* Cleaned up styles for body and html */
+body, html {
+    /* Sets the height of both elements to fill the viewport, a common best practice */
+    /* If you don't need this, you can safely remove these two lines */
+    height: 100%; 
+    
+    margin: 0; /* Essential for removing default browser margins */
+    background-color: #ffffff; 
+    
+    /* Font settings - ensure these match the actual font file weights */
     font-family: "Archivo Narrow", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 600;
-    font-style: normal;    
-    background-color: #ffffff; 
-    font-weight: lighter; 
+    font-style: normal;
     
+    /* Keep only the desired font-weight */
+    font-weight: lighter; /* Assuming you want the lighter look */
+    /* If you wanted 600, you would use: font-weight: 600; */
+}
+
+/* This is GOOD and is the key part for fixing the peeking menu issue. */
+body.menu-open {
+    overflow-x: hidden; /* Prevents horizontal scrolling */
 }
 
 header {
@@ -118,19 +129,19 @@ header {
 #menu {
     position: fixed;
     top: 0;
-    left: -2200px;
-    width: 2000px;
-    height: 100%;
-    background: #000000;
+    left: -105vw; /* start fully off-screen */
+    width: 100vw; /* 100% of the viewport width */
+    /* ... rest of your styles */
+    height: 100vh;
+    background: #000;
     transition: left 0.3s ease-in-out;
     z-index: 5000;
 
-    /* Vertical centering */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start; /* Keep items aligned to the left */
-    padding-left: 30px; /* Optional: space from the left edge */
+    align-items: flex-start;
+    padding-left: 5vw;
 }
 
 #menu ul {
@@ -155,11 +166,9 @@ header {
     font-size: 80px;
 }
 
-#menu ul li:hover {
-    color: rgb(255, 255, 255);
+#menu ul li:hover a {
+    color: rgb(255, 255, 255); /* Changes the link text to white on hover */
 }
-
-
 
 #menu.show {
     left: 0;
@@ -169,24 +178,46 @@ header {
 
 
 
+
+
 /*SEARCH BAR*/
 #search-bar {
     width: 50%;
-    max-width: 400px;
-    padding: 10px 15px;
-    margin: 80px auto 10px auto; /* top: 50px, right/left: auto, bottom: 20px */
+    max-width: 380px;
+    padding: 10px 12px;
+    margin: 80px auto 15px auto;
     display: block;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    font-size: 16px;
+
+    font-family: "Press Start 2P", monospace; /* pixel font */
+    font-size: 10px;
+    color: #111;
+    text-transform: uppercase;
+
+    background-color: #f0f0f0;
+    border: 3px solid #000;
+    border-radius: 0; /* no curves — pure 8bit */
     outline: none;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    image-rendering: pixelated;
+
+    transition: background-color 0.15s steps(2, end), border-color 0.15s steps(2, end);
+}
+
+#search-bar::placeholder {
+    color: #555;
+    opacity: 0.7;
 }
 
 #search-bar:focus {
-    border-color: #fbff00;
-    box-shadow: 0px 2px 8px rgba(234, 255, 3, 0.524);
+    border-color: #ffcc00;
+    background-color: #fffde7;
 }
+
+#search-bar:hover {
+    background-color: #e8e8e8;
+}
+
+
+
 
 /* ARCHIVE LIST */
 #archive-container {
@@ -194,8 +225,10 @@ header {
     flex-direction: column;
     gap: 2rem; /* This adds vertical space between year sections */
     padding: 0.5rem 1rem; /* Minimal vertical and horizontal padding */
+    padding-top: 45px;
 }
-.archive-year {
+
+.archive-year-header {
     font-size: 2rem;
     margin-bottom: 1rem;
     font-weight: bold;
@@ -204,44 +237,68 @@ header {
     text-align: left;
     font-family: "Doto", sans-serif;
     font-weight: 900;
-
 }
 
-/* Grid for archive items */
-.archive-year + div {
-    display: grid;
+.archive-year-header::after {
+    content: "▸";
+    transition: transform 0.3s;
+}
+
+.archive-year-header.open::after {
+    transform: rotate(90deg);
+    content: "▾";
+}
+
+.archive-year-header:hover {
+    color: #555;
+}
+
+.archive-grid {
+    margin-bottom: 30px;
+    display: none; /* default hidden — JS sets to grid when open */
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1rem;
-    
+    transition: all 0.3s ease; /* smooth open */
 }
+
+.archive-grid.open {
+    display: grid;
+}
+
 
 .archive-item {
+    position: relative;
     display: flex;
     flex-direction: column;
-    position: relative;
-    text-decoration: none; /* Removes underline from link */
+    text-decoration: none;
     color: inherit;
-}
 
-.archive-title .highlight,
-.archive-content .highlight {
-    text-decoration: none;  /* Prevent underlines inside highlighted text */
-    background-color: yellow; /* or whatever highlight style you want */
-    color: inherit;
+    /* base border setup */
+    border: 2px solid transparent; /* keeps layout stable */
+    border-radius: 0px;
+    overflow: hidden; /* ensures images don’t bleed outside border */
+    transition: border-color 0.25s ease, transform 0.2s ease;
 }
 
 .archive-item:hover {
-    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-color: #0008ff; /* outline color */
+    border-width: 1px;
 }
+
+/* make sure the image doesn’t cover the border visually */
 .archive-thumbnail {
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
     display: block;
-    flex-shrink: 0;
-    border-radius: 0px;
+    border-radius: 0; /* remove rounding on image so border shows cleanly */
+}
+
+.archive-title .highlight,
+.archive-content .highlight {
+    text-decoration: none;  /* Prevent underlines inside highlighted text */
+    background-color: rgb(225, 0, 255); /* or whatever highlight style you want */
+    color: inherit;
 }
 
 /* Title and description */
@@ -486,17 +543,15 @@ header {
 
 /*ARTICLE TEXT + IMAGE LAYOUT*/
 .about-container, 
-.media-gallery,
 .media-gallery-random,
 .video-container{
-    max-width: 800px;  /* Keeps a readable width */
+    max-width: 850px;  /* Keeps a readable width */
     width: 90%;  /* Allows flexibility for smaller screens */
     margin: 10px auto;  /* Centers content */
     padding: 5px;  /* Adds spacing */
 }
 
 .about-container {
-    max-width: 800px;
     margin: 60px auto;
     padding: 15px;
     text-align: center;
@@ -558,7 +613,7 @@ header {
 
 .responsive-video {
     width: 100%;  /* Makes the video take the full width of its container */
-    max-width: 810px;  /* Limits the maximum width */
+    max-width: 850px;  /* Limits the maximum width */
     height: auto;  /* Keeps aspect ratio */
     display: block;  /* Prevents extra spacing issues */
     margin: 0 auto;  /* Centers the video */
@@ -567,7 +622,7 @@ header {
 
 .responsive-video-availableforall {
     width: 100%;  /* Makes the video take the full width of its container */
-    max-width: 810px;  /* Limits the maximum width */
+    max-width: 850px;  /* Limits the maximum width */
     height: auto;  /* Keeps aspect ratio */
     display: block;  /* Prevents extra spacing issues */
     margin: 0 auto;  /* Centers the video */
@@ -607,7 +662,7 @@ header {
     font-size: 15px;
     font-weight: 800;
     line-height: 1.6;
-    margin-top: 15px;
+    margin-top: 10px;
     margin-bottom: 5px;
     text-align: justify;
     width: 90%;  /* Allows flexibility for smaller screens */
@@ -622,6 +677,39 @@ header {
     text-align: justify;
     width: 90%;  /* Allows flexibility for smaller screens */
     margin: 10px auto;  /* Centers content */
+}
+
+
+
+/*MEDIA GALLERY*/
+.media-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 10px;
+    max-width: 850px;  /* Same as .about-container */
+    margin: 30px auto;
+
+}
+
+.media-gallery img,
+.media-gallery video {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    cursor: pointer;
+    display: block;
+    transition: transform .1s ease-in-out;
+    border-radius: 0px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    image-rendering: -webkit-optimize-contrast !important;
+    image-rendering: optimizeQuality !important;
+    aspect-ratio: 1/1;
+
+}
+
+.media-gallery img:hover,
+.media-gallery video:hover {
+    transform: scale(1.01);
 }
 
 
@@ -714,7 +802,6 @@ header {
 
 
 
-
 /*SELECTION TEXT*/
 ::selection {
     background-color: #ffcc00; /* Change background color */
@@ -726,36 +813,6 @@ header {
 
 
 
-/*MEDIA GALLERY*/
-.media-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 10px;
-    margin-top: 0;
-    max-width: 800px;  /* Same as .about-container */
-}
-
-
-.media-gallery img,
-.media-gallery video {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    cursor: pointer;
-    display: block;
-    transition: transform .3s ease-in-out;
-    border-radius: 0px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    image-rendering: -webkit-optimize-contrast !important;
-    image-rendering: optimizeQuality !important;
-    aspect-ratio: 1/1;
-
-}
-
-.media-gallery img:hover,
-.media-gallery video:hover {
-    transform: scale(1.02);
-}
 
 
 
@@ -1005,7 +1062,7 @@ h1 {
     overflow: hidden;
     margin: 0 auto; /* Remove the 2rem spacing */
     margin-top: 15px;
-    max-width: 800px; /* Optional: limits width on large screens */
+    max-width: 850px; /* Optional: limits width on large screens */
   }
   
 .vimeo-wrapper iframe {
@@ -1026,7 +1083,7 @@ h1 {
 
     }
 
-    .archive-year + div {
+    .archive-grid {
         grid-template-columns: repeat(2, 1fr);    
     }
 
@@ -1240,6 +1297,10 @@ h1 {
     .archive-content{
         font-size: 9px;
         margin-top: -10px;
+    }
+
+    #read-more {
+        font-size: 25px;
     }
 }
     

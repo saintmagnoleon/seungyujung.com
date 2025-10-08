@@ -53,12 +53,6 @@
           </div>
         <script src="https://player.vimeo.com/api/player.js"></script>
 
-    </div> 
-
-            
-        <!-- GRID-->
-
-        
 
         <div id="work" class="work-section">
             <div class="media-gallery">
@@ -71,8 +65,15 @@
             </div>
         </div>
 
+        <div class="credits">Credits</div>
+        <div class="credit-text">Assisted by MILAN PEJIC</div>
+        <div class="credit-text">Directed by SEUNGYU JUNG JEON</div>
 
-        
+    </div> 
+
+            
+        <!-- GRID-->
+
 
         <!-- OPEN ICON + ARROW + TITLE AND DESCRIPTION-->
         <div id="lightbox-modal" class="lightbox" aria-hidden="true" role="dialog">
@@ -94,9 +95,18 @@
                     </div>
         </div>           
 
-        <div class="credits">Credits</div>
-        <div class="credit-text">Assisted by MILAN PEJIC</div>
-        <div class="credit-text">Directed by SEUNGYU JUNG JEON</div>
+        <div id="read-more" style="display: none;">
+            <a href="archive.html">CLICK TO SEE MORE!</a>
+        </div>
+        <script>
+            window.addEventListener('scroll', () => {
+                const readMore = document.getElementById('read-more');
+                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+                    readMore.style.display = 'block';
+                }
+            });
+        </script>
+
    
  
     <div id="timer" style="position: fixed; top: 0; right: 0; padding: 10px; background: transparent; color: #939393; font-size: 12px; z-index: 9999;" > </div>

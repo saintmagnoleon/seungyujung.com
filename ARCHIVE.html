@@ -38,45 +38,15 @@
     </header>
     <div class="header-background-color"></div>   
 
-
-
     <input type="text" id="search-bar" placeholder="search...">
     <div id="archive-container"></div>
 
     <div id="archive">
     <div id="archive-container"></div>
-    </div>
+    
+</div>
 
-    <script>
-        function searchKeyword() {
-            clearSearch();
-        
-            const searchTerm = document.getElementById('searchInput').value.trim();
-            if (!searchTerm) return;
-        
-            const regex = new RegExp(searchTerm, 'gi');
-        
-            const elements = document.querySelectorAll('.archive-title, .archive-content');
-            elements.forEach(el => {
-                const originalText = el.textContent;
-                const highlighted = originalText.replace(regex, match =>
-                    `<span class="highlight">${match}</span>`
-                );
-                el.innerHTML = highlighted;
-            });
-        }
-        
-        function clearSearch() {
-            const highlights = document.querySelectorAll('.highlight');
-            highlights.forEach(span => {
-                const parent = span.parentNode;
-                parent.replaceChild(document.createTextNode(span.textContent), span);
-                parent.normalize();
-            });
-        }
-        </script>
 
- 
 <div id="timer" style="position: fixed; top: 0; right: 0; padding: 10px; background: transparent; color: #939393; font-size: 12px; z-index: 9999;" > </div>
 <div id=click-counter style=position:fixed;top:0;right:-15px;padding:25px;background-color:transparent;color:#939393;font-size:12px;z-index:9999>You clicked 0 times.</div>
 <div id="footer" style="position: fixed; bottom: 0; right: 0px; padding: 5px; background: transparent; color: rgb(0, 0, 0); font-style: italic; font-size: 9px; z-index: 9999;">Developped by Seungyu Jung</div>
