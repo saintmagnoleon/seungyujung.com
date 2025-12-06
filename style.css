@@ -1078,10 +1078,17 @@ h1 {
     }
 
 
+.left-content {
+    padding-left: 10px;
+}
+
+
+
+
 .page-title {
     
     /* HUGE STATIC SIZE */
-    font-size: 30px;
+    font-size: 40px;
 }
 
 
@@ -1092,7 +1099,7 @@ h1 {
     
       .main-text {
         margin-top: 1rem;
-        font-size: 1.1rem;
+        font-size: 18px;
       }
     
       .page-subheading {
@@ -1102,10 +1109,13 @@ h1 {
 
     .card-container {
         height: 40vh;  
+                padding-bottom: 250px;
+
     }
     .card {
         transform: scale(0.25); /* Smaller scale for small screens */
         animation-name: spinCardSmall; /* Define a different animation for small screens if needed */
+
     }
 
 
