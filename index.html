@@ -1,59 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEUNGYU JUNG</title>
-    <link href=FOOTAGE/favicon.png rel=icon type=image/png>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
-</head>
-<body class="fade-out"> <div class="card-wrapper">
-        <div class="card-container">
-            <div class="card-inner">
-                <div class="card-face card-front" onclick="openModal(0)">
-                    <img src="cardfront.jpg" alt="Card Front">
-                </div>
-                <div class="card-face card-back" onclick="openModal(1)">
-                    <img src="cardback.jpg" alt="Card Back">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="card-modal" class="modal-overlay">
-        <button class="modal-close" onclick="closeModal()">
-            <svg width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1">
-                <path d="M18 6L6 18M6 6l12 12"/>
-            </svg>
-        </button>
-
-        <div class="modal-content">
-            <button class="modal-arrow" onclick="switchSide(-1)">
-                <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1">
-                    <path d="M15 18l-6-6 6-6"/>
-                </svg>
-            </button>
-
-            <img id="modal-img-display" src="" alt="Full View">
-
-            <button class="modal-arrow" onclick="switchSide(1)">
-                <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1">
-                    <path d="M9 18l6-6-6-6"/>
-                </svg>
-            </button>
-        </div>
-
-        <div class="modal-caption">
-            <h2 id="modal-title">SEUNGYU JUNG</h2>
-            <a href="https://whileimconscious.com" class="modal-subheading" target="_blank"> 
-                <i> YOU CAN'T SEE WHAT I SEE </i> 
-            </a> 
-        </div>
-    </div>
-
-    <script>
-        // --- INITIAL PAGE FADE IN ---
+<!doctypehtml><html lang=en><meta charset=UTF-8><meta content="width=device-width,initial-scale=1"name=viewport><title>SEUNGYU JUNG</title><link href=FOOTAGE/favicon.png rel=icon type=image/png><link href=style.css rel=stylesheet><link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;700&family=Montserrat:wght@700&display=swap"rel=stylesheet><body class=fade-out><div class=card-wrapper><div class=card-container><div class=card-inner><div class="card-face card-front"onclick=openModal(0)><img alt="Card Front"src=cardfront.jpg></div><div class="card-face card-back"onclick=openModal(1)><img alt="Card Back"src=cardback.jpg></div></div></div></div><div class=modal-overlay id=card-modal><button class=modal-close onclick=closeModal()><svg fill=none height=35 stroke=black stroke-width=1 viewBox="0 0 24 24"width=35><path d="M18 6L6 18M6 6l12 12"/></svg></button><div class=modal-content><button class=modal-arrow onclick=switchSide(-1)><svg fill=none height=50 stroke=black stroke-width=1 viewBox="0 0 24 24"width=50><path d="M15 18l-6-6 6-6"/></svg></button> <img alt="Full View"src=""id=modal-img-display> <button class=modal-arrow onclick=switchSide(1)><svg fill=none height=50 stroke=black stroke-width=1 viewBox="0 0 24 24"width=50><path d="M9 18l6-6-6-6"/></svg></button></div><div class=modal-caption><h2 id=modal-title>SEUNGYU JUNG</h2><a class=modal-subheading href=https://whileimconscious.com target=_blank><i>YOU CAN'T SEE WHAT I SEE</i></a></div></div><script>// --- INITIAL PAGE FADE IN ---
         window.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 document.body.classList.remove('fade-out');
@@ -107,7 +52,4 @@
             }
         });
 
-        modal.onclick = (e) => { if (e.target === modal) closeModal(); };
-    </script>
-</body>
-</html>
+        modal.onclick = (e) => { if (e.target === modal) closeModal(); };</script>
