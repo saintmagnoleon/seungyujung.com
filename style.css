@@ -187,8 +187,11 @@ body {
 
 /* Landscape Mobile / Small Screen Detector */
 @media (max-height: 480px) {
-    body:not(.modal-active) {
-        background: url('FOOTAGE/smallscreendetector.jpg') center center / contain no-repeat white !important;
-    }
+        body {
+          height: 100vh;
+          width: 100vw;
+          background: url('FOOTAGE/smallscreendetector.jpg') center center / contain no-repeat white !important;
+          overflow: hidden;
+        }
     .card-wrapper { display: none; }
 }
