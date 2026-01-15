@@ -1,10 +1,61 @@
-<!doctypehtml><html lang="en"><meta charset="UTF-8"><meta content="width=device-width,initial-scale=1" name="viewport"><title>SEUNGYU JUNG</title><link href="style.css" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet"><body class="fade-out"><div class="card-wrapper"><div class="card-container"><div class="card-inner"><div class="card-face card-front" onclick="openModal(0)"><img alt="Card Front" src="cardfront.jpg"></div><div class="card-face card-back" onclick="openModal(1)"><img alt="Card Back" src="cardback.jpg"></div></div></div></div><div class="modal-overlay" id="card-modal"><button class="modal-close" onclick="closeModal()"><svg fill="none" height="35" stroke="black" stroke-width="1" viewBox="0 0 24 24" width="35"><path d="M18 6L6 18M6 6l12 12"/></svg></button><div class="modal-content"><button class="modal-arrow" onclick="switchSide(-1)"><svg fill="none" height="50" stroke="black" stroke-width="1" viewBox="0 0 24 24" width="50"><path d="M15 18l-6-6 6-6"/></svg></button><img alt="Full View" src="" id="modal-img-display"><button class="modal-arrow" onclick="switchSide(1)"><svg fill="none" height="50" stroke="black" stroke-width="1" viewBox="0 0 24 24" width="50"><path d="M9 18l6-6-6-6"/></svg></button></div><div class="modal-caption"><h2 id="modal-title">SEUNGYU JUNG</h2><a class="modal-subheading" href="https://whileimconscious.com" target="_blank"><i>YOU CAN'T SEE WHAT I SEE</i></a></div></div><script>// --- INITIAL PAGE FADE IN ---
-        window.addEventListener('DOMContentLoaded', () => {
-            setTimeout(() => {
-                document.body.classList.remove('fade-out');
-            }, 100);
-        });
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEUNGYU JUNG</title>
+        <link href=FOOTAGE/favicon.png rel=icon type=image/png>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+</head>
+<body> 
 
+    <div class="card-wrapper">
+        <div class="card-container">
+            <div class="card-inner">
+                <div class="card-face card-front" onclick="openModal(0)">
+                    <img src="cardfront.jpg" alt="Card Front">
+                </div>
+                <div class="card-face card-back" onclick="openModal(1)">
+                    <img src="cardback.jpg" alt="Card Back">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="card-modal" class="modal-overlay">
+        <button class="modal-close" onclick="closeModal()">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1">
+                <path d="M18 6L6 18M6 6l12 12"/>
+            </svg>
+        </button>
+
+        <div class="modal-content">
+            <button class="modal-arrow arrow-left" onclick="switchSide(-1)">
+                <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1">
+                    <path d="M15 18l-6-6 6-6"/>
+                </svg>
+            </button>
+
+            <img id="modal-img-display" src="" alt="Full View">
+
+            <button class="modal-arrow arrow-right" onclick="switchSide(1)">
+                <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1">
+                    <path d="M9 18l6-6-6-6"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="modal-caption">
+            <h2 id="modal-title">SEUNGYU JUNG</h2>
+            <a href="https://whileimconscious.com" class="modal-subheading" target="_blank"> 
+                <i> YOU CAN'T SEE WHAT I SEE </i> 
+            </a> 
+        </div>
+    </div>
+
+    <script>
+        // Start visible, then you can add the fade-in logic back once confirmed working
         const modal = document.getElementById('card-modal');
         const modalImg = document.getElementById('modal-img-display');
         const cardSides = ["cardfront.jpg", "cardback.jpg"];
@@ -14,12 +65,7 @@
             currentSide = index;
             modalImg.src = cardSides[currentSide];
             modal.classList.add('active');
-            
-            // Trigger modal fade transition
-            setTimeout(() => {
-                modal.style.opacity = "1";
-            }, 10);
-            
+            setTimeout(() => { modal.style.opacity = "1"; }, 10);
             document.body.style.overflow = 'hidden';
         }
 
@@ -28,22 +74,19 @@
             setTimeout(() => {
                 modal.classList.remove('active');
                 document.body.style.overflow = 'auto';
-            }, 400); // Wait for CSS transition to finish
+            }, 400);
         }
 
         function switchSide(direction) {
-            // Fade out current image
             modalImg.style.opacity = "0";
-            
             setTimeout(() => {
                 currentSide = (currentSide + direction + 2) % 2;
                 modalImg.src = cardSides[currentSide];
-                // Fade back in
                 modalImg.style.opacity = "1";
             }, 200);
         }
 
-        // Keyboard Interaction
+        // Keyboard Support
         document.addEventListener('keydown', (e) => {
             if (modal.classList.contains('active')) {
                 if (e.key === "ArrowLeft") switchSide(-1);
@@ -52,4 +95,7 @@
             }
         });
 
-        modal.onclick = (e) => { if (e.target === modal) closeModal(); };</script>
+        modal.onclick = (e) => { if (e.target === modal) closeModal(); };
+    </script>
+</body>
+</html>
