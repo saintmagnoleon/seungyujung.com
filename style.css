@@ -172,7 +172,7 @@ body {
         perspective: 900px; 
         
         /* Increased scale for "Ultra-Big" feel */
-        transform: scale(1.25); 
+        transform: scale(1.4); 
         
         /* Increased max-height slightly to accommodate the larger scale */
         max-height: 60vh; 
