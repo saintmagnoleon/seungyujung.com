@@ -5,8 +5,7 @@ body {
     margin: 0; padding: 0;
     width: 100%; height: 100%;
     background-color: #ffffff;
-    font-family: "Archivo Narrow", sans-serif;
-    overflow: hidden;
+    font-family: "arial", sans-serif;
     opacity: 1;
     transition: opacity 1.5s ease-in-out;
 }
@@ -139,7 +138,7 @@ body {
 }
 
 #modal-title {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'arial', sans-serif;
     font-size: clamp(16px, 4vh, 22px); /* Font size responds to screen height */
     letter-spacing: 4px;
     margin: 0;
@@ -165,12 +164,18 @@ body {
 
 /* --- PHONE ADAPTATION (ULTRA-BIG) --- */
 @media (max-width: 768px) {
-    .card-container {
+.card-container {
         width: 100vw; 
         max-width: none;
-        perspective: 800px;
-        transform: scale(1.1); /* Slightly reduced to avoid title overlap on mobile */
-        max-height: 55vh; 
+        
+        /* Perspective tightened for a more dramatic large-scale look */
+        perspective: 900px; 
+        
+        /* Increased scale for "Ultra-Big" feel */
+        transform: scale(1.25); 
+        
+        /* Increased max-height slightly to accommodate the larger scale */
+        max-height: 60vh; 
     }
 
     #modal-img-display {
