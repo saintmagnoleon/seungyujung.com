@@ -14,31 +14,24 @@ body {
 /* --- MAIN SCREEN: ROTATING CARD --- */
 .card-wrapper {
     display: flex;
+    flex-direction: column; /* Allows content to stack vertically if needed */
     justify-content: center;
     align-items: center;
     height: 100vh;
     width: 100vw;
-    padding: 0;
+    padding: 2vh;
     overflow: hidden;
 }
 
 .card-container {
     perspective: 2000px;
-    /* Aspect Ratio Adaptation: width is fluid but respects height limits */
     width: 90vw;
     max-width: 850px; 
     aspect-ratio: 1.58 / 1; 
-    max-height: 80vh; 
+    max-height: 70vh; /* Reduced slightly to ensure it never hits the bottom title */
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-/* Fallback for browsers that don't support aspect-ratio */
-@supports not (aspect-ratio: 1.58 / 1) {
-    .card-container {
-        height: 538px; /* Based on 850px max-width */
-    }
 }
 
 .card-inner {
@@ -68,9 +61,7 @@ body {
     border-radius: 4%; 
 }
 
-.card-back {
-    transform: rotateY(180deg);
-}
+.card-back { transform: rotateY(180deg); }
 
 @keyframes spin {
     from { transform: rotateY(0deg); }
@@ -85,16 +76,14 @@ body {
     width: 100%; height: 100%;
     background-color: #ffffff;
     z-index: 10000;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: column; /* Stack image and caption vertically */
+    justify-content: center; 
     align-items: center;
     opacity: 0;
     transition: opacity 0.4s ease-in-out;
 }
 
-.modal-overlay.active {
-    display: flex;
-}
+.modal-overlay.active { display: flex; }
 
 .modal-content {
     position: relative;
@@ -102,12 +91,12 @@ body {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100%;
+    flex: 1; /* Occupies available space */
 }
 
 #modal-img-display {
-    max-height: 70vh;
-    max-width: 95vw;
+    max-height: 65vh; /* Prevents image from taking too much vertical space */
+    max-width: 85vw;
     object-fit: contain;
     transition: opacity 0.25s ease-in-out;
 }
@@ -141,19 +130,17 @@ body {
 .modal-arrow.arrow-left { left: 10px; } 
 .modal-arrow.arrow-right { right: 10px; }
 
-/* --- CENTER BOTTOM ALIGNED CAPTION --- */
+/* --- CENTER BOTTOM ALIGNED CAPTION (RESIZABLE) --- */
 .modal-caption {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
+    width: 100%;
+    padding: 2vh 0 4vh 0; /* Uses vh to scale with screen height */
     text-align: center;
-    width: 90%;
+    background: white; /* Ensures it's legible if overlapping happens */
 }
 
 #modal-title {
     font-family: 'Montserrat', sans-serif;
-    font-size: clamp(18px, 5vw, 22px);
+    font-size: clamp(16px, 4vh, 22px); /* Font size responds to screen height */
     letter-spacing: 4px;
     margin: 0;
     text-transform: uppercase;
@@ -162,46 +149,39 @@ body {
 .modal-subheading {
     text-decoration: none;
     color: #b8b8b8;
-    font-size: clamp(12px, 3.5vw, 14px);
+    font-size: clamp(10px, 2vh, 14px);
     display: block;
-    margin-top: 10px;
+    margin-top: 1vh;
     text-transform: uppercase;
+    /* This makes the color change smooth */
+    transition: color 0.3s ease-in-out; 
 }
 
-/* --- PHONE ADAPTATION (ULTRA-BIG + ADAPTIVE) --- */
+/* This is the hover state */
+.modal-subheading:hover {
+    color: #0d00ff; /* Changes to blue, or any color you prefer */
+    text-decoration: underline; /* Optional: adds an underline on hover */
+}
+
+/* --- PHONE ADAPTATION (ULTRA-BIG) --- */
 @media (max-width: 768px) {
     .card-container {
-        /* Massive width relative to viewport */
         width: 100vw; 
         max-width: none;
-        
-        /* Perspective and Scale for huge "in your face" feel */
         perspective: 800px;
-        transform: scale(1.15); 
-        
-        /* Ensure aspect ratio still holds height within bounds on small phones */
-        max-height: 70vh; 
-    }
-
-    .card-face img {
-        width: 100%;
-        height: auto;
+        transform: scale(1.1); /* Slightly reduced to avoid title overlap on mobile */
+        max-height: 55vh; 
     }
 
     #modal-img-display {
-        max-width: 95vw;
-        max-height: 60vh;
+        max-width: 90vw;
+        max-height: 50vh;
     }
 
     .modal-arrow {
-        background: rgb(255, 255, 255);
+        background: rgba(255, 255, 255, 0.9);
         border-radius: 50%;
-        padding: 10px;
-    }
-
-    .modal-arrow svg {
-        width: 30px;
-        height: 30px;
+        padding: 8px;
     }
 }
 
@@ -210,7 +190,5 @@ body {
     body:not(.modal-active) {
         background: url('FOOTAGE/smallscreendetector.jpg') center center / contain no-repeat white !important;
     }
-    .card-wrapper {
-        display: none;
-    }
+    .card-wrapper { display: none; }
 }
