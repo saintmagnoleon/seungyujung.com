@@ -162,28 +162,7 @@ body {
     text-decoration: underline; /* Optional: adds an underline on hover */
 }
 
-/*PAGE LOADING ANIMATION*/
-#page-loader {
-	position: fixed;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	justify-content: center;
-	align-items: center;
-	z-index: 1000;
-	opacity: 1;
-	transition: opacity .5s ease-out
-}
-@keyframes fadeIn {
-	from {
-		opacity: 0
-	}
 
-	to {
-		opacity: 1
-	}
-}
 
 
 /* --- PHONE ADAPTATION (ULTRA-BIG) --- */
