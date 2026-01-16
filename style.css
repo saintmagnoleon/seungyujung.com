@@ -184,9 +184,7 @@ body {
 		opacity: 1
 	}
 }
-#content {
-	animation: .5s ease-out fadeIn
-}
+
 
 /* --- PHONE ADAPTATION (ULTRA-BIG) --- */
 @media (max-width: 768px) {
