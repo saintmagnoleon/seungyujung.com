@@ -139,21 +139,23 @@ body {
 
 #modal-title {
     font-family: 'arial', sans-serif;
-    font-size: clamp(16px, 4vh, 22px); /* Font size responds to screen height */
-    letter-spacing: 4px;
+    font-size: clamp(22px, 4vh, 28px); /* Font size responds to screen height */
     margin: 0;
     text-transform: uppercase;
+    font-weight: lighter;
 }
 
 .modal-subheading {
     text-decoration: none;
-    color: #b8b8b8;
-    font-size: clamp(10px, 2vh, 14px);
+    color: #0095ff;
+    font-size: clamp(14px, 2vh, 18px);
+    font-weight: bold;
     display: block;
     margin-top: 1vh;
     text-transform: uppercase;
     /* This makes the color change smooth */
-    transition: color 0.3s ease-in-out; 
+    transition: color 0.3s ease-in-out;     
+    
 }
 
 /* This is the hover state */
@@ -161,6 +163,73 @@ body {
     color: #0d00ff; /* Changes to blue, or any color you prefer */
     text-decoration: underline; /* Optional: adds an underline on hover */
 }
+
+
+
+
+
+
+/* Layout for Title and Year */
+.title-row {
+    display: flex;
+    justify-content: space-between; /* Pushes year to the far right */
+    align-items: baseline;
+    padding: 15px 0;
+}
+
+.archive-title {
+    font-size: 1.8rem;
+    margin: 0;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+}
+
+.archive-year {
+    font-size: 1.2rem;
+    color: #888; /* Slightly faded like pg-lang */
+}
+
+/* Enhanced Unfolding Animation */
+.content-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.6s cubic-bezier(0.33, 1, 0.68, 1); /* Smoother "out" curve */
+    overflow: hidden;
+    visibility: hidden; /* Hides media from view entirely */
+}
+
+.archive-item.active .content-wrapper {
+    grid-template-rows: 1fr;
+    visibility: visible;
+}
+
+.media-container {
+    min-height: 0;
+}
+
+.media-container img, 
+.media-container video {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
+
+.description {
+    margin: 20px 0 40px 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    max-width: 500px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s ease 0.2s; /* Delays text until image starts showing */
+}
+
+.archive-item.active .description {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
 
 
 

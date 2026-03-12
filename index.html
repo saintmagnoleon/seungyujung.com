@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +8,31 @@
         <link href=FOOTAGE/favicon.png rel=icon type=image/png>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+
+    <style>
+        .top-nav {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+
+        .top-nav a {
+            text-decoration: none;
+            color: #0400ff;
+            font-size: 14px;
+            font-weight: bold;
+        }
+    </style>
+
 </head>
 <body> 
-  
+
+    <nav class="top-nav">
+        <a href="archive.html">click here !</a>
+    </nav>
+
     <div class="card-wrapper">
         <div class="card-container">
             <div class="card-inner">
@@ -22,7 +45,6 @@
             </div>
         </div>
     </div>
-    
 
     <div id="card-modal" class="modal-overlay">
         <button class="modal-close" onclick="closeModal()">
@@ -49,8 +71,8 @@
 
         <div class="modal-caption">
             <h2 id="modal-title">SEUNGYU JUNG</h2>
-            <a href="https://whileimconscious.com" class="modal-subheading" target="_blank"> 
-                <i> YOU CAN'T SEE WHAT I SEE </i> 
+            <a href="archive.html" class="modal-subheading" target="_blank"> 
+
             </a> 
         </div>
     </div>

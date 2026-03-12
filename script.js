@@ -37,3 +37,29 @@
     });
 
     window.onclick = (e) => { if (e.target == modal) closeModal(); };
+
+
+
+document.querySelectorAll('.archive-item').forEach(item => {
+    item.addEventListener('click', function(e) {
+        const isOpened = this.classList.contains('active');
+        const targetUrl = this.getAttribute('data-url');
+
+        if (!isOpened) {
+            // Close others
+            document.querySelectorAll('.archive-item').forEach(el => el.classList.remove('active'));
+            
+            // Open this one
+            this.classList.add('active');
+            
+            // Optional: Scroll to the item so it's not cut off
+            setTimeout(() => {
+                this.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 300); 
+
+        } else {
+            // Redirect on second click
+            window.location.href = targetUrl;
+        }
+    });
+});
