@@ -15,6 +15,31 @@
             color: #ffffff;
         }
 
+        /* --- PAGE LOADING ANIMATION --- */
+        #page-loader {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #6498ec; /* Matches the body background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 1;
+            transition: opacity .5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        #content {
+            animation: fadeIn .5s ease-out;
+        }
+
         /* --- UI ELEMENTS --- */
         .bottom-footer {
             position: fixed;
@@ -77,7 +102,6 @@
             color: #ffffff;
             font-size: 1.1rem;
             text-transform: lowercase;
-
         }
 
         /* --- ANIMATION CORE --- */
@@ -152,232 +176,237 @@
             .archive-title { font-size: 1.1rem; max-width: 70%; }
             .archive-year { font-size: 10px; }
             body { padding: 20px; }
-            
-            /* Add this to un-fix the navigation on mobile */
-            .top-nav {
-                position: absolute; 
-            }
-            
-            /* Optional: Shrink the top margin on mobile so there isn't a massive gap */
-            .archive-container {
-                margin-top: 60px; 
-            }
+            .top-nav { position: absolute; }
+            .archive-container { margin-top: 60px; }
         }
     </style>
 </head>
 
 <body>
+    <div id="page-loader"></div>
 
-    <nav class="top-nav">
-        <a href="index.html">index</a>
-    </nav>
+    <div id="content" style="display:none;">
+        <nav class="top-nav">
+            <a href="index.html">index</a>
+        </nav>
 
-    <main class="archive-container">
+        <main class="archive-container">
 
-        <div class="archive-item">
-            <div class="title-row">
-                <h2 class="archive-title"><i>WRECK IT REKK</i></h2>
-                <span class="archive-year">JANUARY 2026</span>
-            </div>
-            <div class="content-wrapper">
-                <a href="https://whileimconscious.com/2026january_wreckitrekk" class="project-link">
-                    <div class="media-container">
-                        <img src="FOOTAGE/IMAGE/ARCHIVE/2026/senegalrekk.jpg" loading="lazy" alt="Project 1">
-                    </div>
-                    <p class="description">Justice de Dieu.</p>
-                </a>
-            </div>
-        </div>
-
-                <div class="archive-item zoom-effect">
-            <div class="title-row">
-                <h2 class="archive-title"><i>BOJVCK</i></h2>
-                <span class="archive-year">JANUARY 2026</span>
-            </div>
-            <div class="content-wrapper">
-                <a href="https://whileimconscious.com/2026january_bojvck_outtamotherland" class="project-link">
-                    <div class="media-container">
-                        <img src="FOOTAGE/IMAGE/ARCHIVE/2026/bojvck1.jpg" loading="lazy" alt="Project 1">
-                    </div>
-                    <p class="description"></p>
-                </a>
-            </div>
-        </div>
-
-        <div class="archive-item zoom-effect">
-            <div class="title-row">
-                <h2 class="archive-title"><i>I Am Prada Of You</i></h2>
-                <span class="archive-year">DECEMBER 2025</span>
-            </div>
-            <div class="content-wrapper">
-                <a href="https://whileimconscious.com/2025iampradaofyou" class="project-link">
-                    <div class="media-container">
-                        <img src="FOOTAGE/IMAGE/ARCHIVE/2025/proud_prada.jpg" loading="lazy" alt="Project 1">
-                    </div>
-                    <p class="description">P R O U D</p>
-                </a>
-            </div>
-        </div>
-
-        <div class="archive-item zoom-effect">
-            <div class="title-row">
-                <h2 class="archive-title">OJOS DE 2016</h2>
-                <span class="archive-year">JANUARY 2026</span>
-            </div>
-            <div class="content-wrapper">
-                <a href="https://whileimconscious.com/2025ojosde2016" class="project-link">
-                    <div class="media-container">
-                        <img src="FOOTAGE/IMAGE/ARCHIVE/2025/ojosde2016.jpg" loading="lazy" alt="Project 1">
-                    </div>
-                    <p class="description">Irene Mayo</p>
-                </a>
-            </div>
-        </div>
-
-        <div class="archive-item zoom-effect">
-            <div class="title-row">
-                <h2 class="archive-title"><i>EXPERIENCED AMATEUR</i></h2>
-                <span class="archive-year">OCTOBER 2025</span>
-            </div>
-            <div class="content-wrapper">
-                <a href="https://whileimconscious.com/2025experienced_amateur" class="project-link">
-                    <div class="media-container">
-                        <img src="FOOTAGE/IMAGE/ARCHIVE/2025/musicispower.jpg" loading="lazy" alt="Project 1">
-                    </div>
-                    <p class="description">CHOISY LE ROI 94600</p>
-                </a>
-            </div>
-        </div>
-
-
-        <div class="archive-item zoom-effect">
-            <div class="title-row">
-                <h2 class="archive-title"><i>MUTATED JUNGLE</i></h2>
-                <span class="archive-year">JUNE 2025</span>
-            </div>
-            <div class="content-wrapper">
-                <a href="https://whileimconscious.com/2025mutated_jungle" class="project-link">
-                    <div class="media-container">
-                        <div class="video-wrapper">
-                    <iframe 
-                        src="https://player.vimeo.com/video/1117745442?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-                        frameborder="0" 
-                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-                        title="MUTATED JUNGLE">
-                    </iframe>
+            <div class="archive-item">
+                <div class="title-row">
+                    <h2 class="archive-title">WRECK IT REKK !</h2>
+                    <span class="archive-year">JANUARY 2026</span>
+                </div>
+                <div class="content-wrapper">
+                    <a href="https://whileimconscious.com/2026january_wreckitrekk" class="project-link">
+                        <div class="media-container">
+                            <img src="FOOTAGE/IMAGE/ARCHIVE/2026/senegalrekk.jpg" loading="lazy" alt="Project 1">
                         </div>
-                    </div>
-                    <p class="description">experimenting.</p>
-                </a>
+                        <p class="description">Justice de Dieu.</p>
+                    </a>
+                </div>
             </div>
-        </div>
 
-                <div class="archive-item zoom-effect">
-            <div class="title-row">
-                <h2 class="archive-title">PÉRIODE BLEU</h2>
-                <span class="archive-year">APRIL 2025</span>
-            </div>
-            <div class="content-wrapper">
-                <a href="https://whileimconscious.com/2025periode_bleue" class="project-link">
-                    <div class="media-container">
-                        <img src="FOOTAGE/IMAGE/ARCHIVE/2025/periodebleu.avif" loading="lazy" alt="Project 1">
-                    </div>
-                    <p class="description">Standard size.</p>
-                </a>
-            </div>
-        </div>
-
-
-
-                <div class="archive-item">
-            <div class="title-row">
-                <h2 class="archive-title"><i>ANTHROPOCÈNE</i></h2>
-                <span class="archive-year">AUGUST 2024</span>
-            </div>
-            <div class="content-wrapper">
-                <a href="https://whileimconscious.com/2024anthropocene" class="project-link">
-                    <div class="media-container">
-                        <img src="FOOTAGE/IMAGE/ARCHIVE/2024/anthropocene.avif" loading="lazy" alt="Project 1">
-                    </div>
-                    <p class="description">Made my bredrin Eneko pose for this shoot.</p>
-                </a>
-            </div>
-        </div>
-
-                <div class="archive-item zoom-effect">
-            <div class="title-row">
-                <h2 class="archive-title"><i>R4TPUNKI</i></h2>
-                <span class="archive-year">MAY 2024</span>
-            </div>
-            <div class="content-wrapper">
-                <a href="https://whileimconscious.com/2024acws" class="project-link">
-                    <div class="media-container">
-                        <img src="FOOTAGE/IMAGE/ARCHIVE/2024/r4tpunki.avif" loading="lazy" alt="Project 1">
-                    </div>
-                    <p class="description">You Can't See What I See.</p>
-                </a>
-            </div>
-        </div>
-
-                        <div class="archive-item zoom-effect">
-            <div class="title-row">
-                <h2 class="archive-title"><i>BOUQUET DE FLEURS</i></h2>
-                <span class="archive-year">MAY 2024</span>
-            </div>
-            <div class="content-wrapper">
-                <a href="https://whileimconscious.com/2024bouquet%20de%20fleurs" class="project-link">
-                    <div class="media-container">
-                        <img src="FOOTAGE/IMAGE/ARCHIVE/2024/bouquetdefleur.avif" loading="lazy" alt="Project 1">
-                    </div>
-                    <p class="description">Big up Lil Sis aka Chaeyu Jung.</p>
-                </a>
-            </div>
-        </div>
-
-
-                <div class="archive-item zoom-effect">
-            <div class="title-row">
-                <h2 class="archive-title"><i>SANS TITRE</i></h2>
-                <span class="archive-year">MARCH 2024</span>
-            </div>
-            <div class="content-wrapper">
-                <a href="https://whileimconscious.com/2024sans_titre" class="project-link">
-                    <div class="media-container">
-                        <div class="video-wrapper">
-                            <iframe 
-                                src="https://player.vimeo.com/video/1075491509?h=d4fb2d2c1e&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1" 
-                                frameborder="0" 
-                                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
-                                title="SANS_TITRE">
-                            </iframe>
+            <div class="archive-item zoom-effect">
+                <div class="title-row">
+                    <h2 class="archive-title">BOJVCK OUTTA MOTHERLAND</h2>
+                    <span class="archive-year">JANUARY 2026</span>
+                </div>
+                <div class="content-wrapper">
+                    <a href="https://whileimconscious.com/2026january_bojvck_outtamotherland" class="project-link">
+                        <div class="media-container">
+                            <img src="FOOTAGE/IMAGE/ARCHIVE/2026/bojvck1.jpg" loading="lazy" alt="Project 1">
                         </div>
-                    </div>
-                    <p class="description">REAL LIFE.</p>
-                </a>
+                        <p class="description"></p>
+                    </a>
+                </div>
             </div>
-        </div>
 
-        <div class="archive-item zoom-effect">
-            <div class="title-row">
-                <h2 class="archive-title"><i>The Refusal of The Creation</i></h2>
-                <span class="archive-year">JUNE 2023</span>
+            <div class="archive-item zoom-effect">
+                <div class="title-row">
+                    <h2 class="archive-title">I Am Prada Of You</h2>
+                    <span class="archive-year">DECEMBER 2025</span>
+                </div>
+                <div class="content-wrapper">
+                    <a href="https://whileimconscious.com/2025iampradaofyou" class="project-link">
+                        <div class="media-container">
+                            <img src="FOOTAGE/IMAGE/ARCHIVE/2025/proud_prada.jpg" loading="lazy" alt="Project 1">
+                        </div>
+                        <p class="description">P R O U D</p>
+                    </a>
+                </div>
             </div>
-            <div class="content-wrapper">
-                    <a href="https://whileimconscious.com/2023the_refusal_of_the_creation" class="project-link">
-                    <div class="media-container">
-                        <img src="FOOTAGE/IMAGE/ARCHIVE/2023/therefusalofthecreation.jpg" loading="lazy" alt="Project 1">
-                    </div>
-                    <p class="description">Beginnings.</p>
-                </a>
-            </div>
-        </div>
 
-        <footer class="bottom-footer">
-            developed by seungyu jung
-        </footer>
-    </main>
+            <div class="archive-item zoom-effect">
+                <div class="title-row">
+                    <h2 class="archive-title">OJOS DE 2016</h2>
+                    <span class="archive-year">JANUARY 2026</span>
+                </div>
+                <div class="content-wrapper">
+                    <a href="https://whileimconscious.com/2025ojosde2016" class="project-link">
+                        <div class="media-container">
+                            <img src="FOOTAGE/IMAGE/ARCHIVE/2025/ojosde2016.jpg" loading="lazy" alt="Project 1">
+                        </div>
+                        <p class="description">Irene Mayo</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="archive-item zoom-effect">
+                <div class="title-row">
+                    <h2 class="archive-title">EXPERIENCED AMATEUR</h2>
+                    <span class="archive-year">OCTOBER 2025</span>
+                </div>
+                <div class="content-wrapper">
+                    <a href="https://whileimconscious.com/2025experienced_amateur" class="project-link">
+                        <div class="media-container">
+                            <img src="FOOTAGE/IMAGE/ARCHIVE/2025/musicispower.jpg" loading="lazy" alt="Project 1">
+                        </div>
+                        <p class="description">CHOISY LE ROI 94600</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="archive-item zoom-effect">
+                <div class="title-row">
+                    <h2 class="archive-title">MUTATED JUNGLE</h2>
+                    <span class="archive-year">JUNE 2025</span>
+                </div>
+                <div class="content-wrapper">
+                    <a href="https://whileimconscious.com/2025mutated_jungle" class="project-link">
+                        <div class="media-container">
+                            <div class="video-wrapper">
+                        <iframe 
+                            src="https://player.vimeo.com/video/1117745442?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+                            frameborder="0" 
+                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                            title="MUTATED JUNGLE">
+                        </iframe>
+                            </div>
+                        </div>
+                        <p class="description">experimenting.</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="archive-item zoom-effect">
+                <div class="title-row">
+                    <h2 class="archive-title">PÉRIODE BLEU</h2>
+                    <span class="archive-year">APRIL 2025</span>
+                </div>
+                <div class="content-wrapper">
+                    <a href="https://whileimconscious.com/2025periode_bleue" class="project-link">
+                        <div class="media-container">
+                            <img src="FOOTAGE/IMAGE/ARCHIVE/2025/periodebleu.avif" loading="lazy" alt="Project 1">
+                        </div>
+                        <p class="description">Standard size.</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="archive-item">
+                <div class="title-row">
+                    <h2 class="archive-title">ANTHROPOCÈNE</h2>
+                    <span class="archive-year">AUGUST 2024</span>
+                </div>
+                <div class="content-wrapper">
+                    <a href="https://whileimconscious.com/2024anthropocene" class="project-link">
+                        <div class="media-container">
+                            <img src="FOOTAGE/IMAGE/ARCHIVE/2024/anthropocene.avif" loading="lazy" alt="Project 1">
+                        </div>
+                        <p class="description">Made my bredrin Eneko pose for this shoot.</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="archive-item zoom-effect">
+                <div class="title-row">
+                    <h2 class="archive-title">R4TPUNKI</h2>
+                    <span class="archive-year">MAY 2024</span>
+                </div>
+                <div class="content-wrapper">
+                    <a href="https://whileimconscious.com/2024acws" class="project-link">
+                        <div class="media-container">
+                            <img src="FOOTAGE/IMAGE/ARCHIVE/2024/r4tpunki.avif" loading="lazy" alt="Project 1">
+                        </div>
+                        <p class="description">You Can't See What I See.</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="archive-item zoom-effect">
+                <div class="title-row">
+                    <h2 class="archive-title">BOUQUET DE FLEURS</h2>
+                    <span class="archive-year">MAY 2024</span>
+                </div>
+                <div class="content-wrapper">
+                    <a href="https://whileimconscious.com/2024bouquet%20de%20fleurs" class="project-link">
+                        <div class="media-container">
+                            <img src="FOOTAGE/IMAGE/ARCHIVE/2024/bouquetdefleur.avif" loading="lazy" alt="Project 1">
+                        </div>
+                        <p class="description">Big up Lil Sis aka Chaeyu Jung.</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="archive-item zoom-effect">
+                <div class="title-row">
+                    <h2 class="archive-title">SANS TITRE</h2>
+                    <span class="archive-year">MARCH 2024</span>
+                </div>
+                <div class="content-wrapper">
+                    <a href="https://whileimconscious.com/2024sans_titre" class="project-link">
+                        <div class="media-container">
+                            <div class="video-wrapper">
+                                <iframe 
+                                    src="https://player.vimeo.com/video/1075491509?h=d4fb2d2c1e&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1" 
+                                    frameborder="0" 
+                                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
+                                    title="SANS_TITRE">
+                                </iframe>
+                            </div>
+                        </div>
+                        <p class="description">REAL LIFE.</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="archive-item zoom-effect">
+                <div class="title-row">
+                    <h2 class="archive-title">The Refusal of The Creation</h2>
+                    <span class="archive-year">JUNE 2023</span>
+                </div>
+                <div class="content-wrapper">
+                        <a href="https://whileimconscious.com/2023the_refusal_of_the_creation" class="project-link">
+                        <div class="media-container">
+                            <img src="FOOTAGE/IMAGE/ARCHIVE/2023/therefusalofthecreation.jpg" loading="lazy" alt="Project 1">
+                        </div>
+                        <p class="description">Beginnings.</p>
+                    </a>
+                </div>
+            </div>
+
+            <footer class="bottom-footer">
+                developed by seungyu jung
+            </footer>
+        </main>
+    </div>
 
     <script>
+        /* --- PAGE LOADER LOGIC --- */
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('page-loader');
+            const content = document.getElementById('content');
+
+            loader.style.opacity = '0'; // Trigger fade out
+            
+            setTimeout(() => {
+                loader.style.display = 'none'; // Remove loader from document flow
+                content.style.display = 'block'; // Show main content
+            }, 500); 
+        });
+
+        /* --- ACCORDION LOGIC --- */
         document.addEventListener('DOMContentLoaded', () => {
             const archiveItems = document.querySelectorAll('.archive-item');
 
@@ -396,7 +425,7 @@
                             const otherVid = el.querySelector('video');
                             if(otherVid) otherVid.pause();
                             
-                            // Important: Clean up iframe src when closing to stop audio/load
+                            // Clean up iframe src when closing to stop audio/load
                             const otherIframe = el.querySelector('iframe');
                             if(otherIframe) otherIframe.removeAttribute('src'); 
                         }

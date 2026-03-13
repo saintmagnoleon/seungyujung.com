@@ -1,46 +1,31 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SEUNGYU JUNG</title>
-        <link href=FOOTAGE/favicon.png rel=icon type=image/png>
+    <link href="FOOTAGE/favicon.png" rel="icon" type="image/png">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
-
-
-    <style>
-        .top-nav {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 1000;
-        }
-
-        .top-nav a {
-            text-decoration: none;
-            color: #0400ff;
-            font-size: 14px;
-            font-weight: bold;
-        }
-    </style>
-
 </head>
 <body> 
+    <div id="page-loader">
+        </div>
 
-    <nav class="top-nav">
-        <a href="archive.html">click here !</a>
-    </nav>
+    <div id="content" style="display:none;">
+        <nav class="top-nav">
+            <a href="archive.html">click here !</a>
+        </nav>
 
-    <div class="card-wrapper">
-        <div class="card-container">
-            <div class="card-inner">
-                <div class="card-face card-front" onclick="openModal(0)">
-                    <img src="cardfront.jpg" alt="Card Front">
-                </div>
-                <div class="card-face card-back" onclick="openModal(1)">
-                    <img src="cardback.jpg" alt="Card Back">
+        <div class="card-wrapper">
+            <div class="card-container">
+                <div class="card-inner">
+                    <div class="card-face card-front" onclick="openModal(0)">
+                        <img src="cardfront.jpg" alt="Card Front">
+                    </div>
+                    <div class="card-face card-back" onclick="openModal(1)">
+                        <img src="cardback.jpg" alt="Card Back">
+                    </div>
                 </div>
             </div>
         </div>
@@ -71,14 +56,25 @@
 
         <div class="modal-caption">
             <h2 id="modal-title">SEUNGYU JUNG</h2>
-            <a href="archive.html" class="modal-subheading" target="_blank"> 
-
-            </a> 
+            <a href="archive.html" class="modal-subheading" target="_blank"></a> 
         </div>
     </div>
 
     <script>
-        // Start visible, then you can add the fade-in logic back once confirmed working
+        /* --- PAGE LOADER LOGIC --- */
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('page-loader');
+            const content = document.getElementById('content');
+
+            loader.style.opacity = '0'; // Trigger fade out
+            
+            setTimeout(() => {
+                loader.style.display = 'none'; // Remove loader from document flow
+                content.style.display = 'block'; // Show main content
+            }, 500); 
+        });
+
+        /* --- MODAL LOGIC --- */
         const modal = document.getElementById('card-modal');
         const modalImg = document.getElementById('modal-img-display');
         const cardSides = ["cardfront.jpg", "cardback.jpg"];
@@ -118,6 +114,7 @@
             }
         });
 
+        // Click outside to close
         modal.onclick = (e) => { if (e.target === modal) closeModal(); };
     </script>
 </body>

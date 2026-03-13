@@ -10,10 +10,50 @@ body {
     transition: opacity 1.5s ease-in-out;
 }
 
+/* --- NAVIGATION --- */
+.top-nav {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+.top-nav a {
+    text-decoration: none;
+    color: #0400ff;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* --- PAGE LOADING ANIMATION --- */
+#page-loader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff; /* Ensures the screen is covered while loading */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity .5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#content {
+    animation: fadeIn .5s ease-out;
+}
+
 /* --- MAIN SCREEN: ROTATING CARD --- */
 .card-wrapper {
     display: flex;
-    flex-direction: column; /* Allows content to stack vertically if needed */
+    flex-direction: column; 
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -27,7 +67,7 @@ body {
     width: 90vw;
     max-width: 850px; 
     aspect-ratio: 1.58 / 1; 
-    max-height: 70vh; /* Reduced slightly to ensure it never hits the bottom title */
+    max-height: 70vh; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -75,7 +115,7 @@ body {
     width: 100%; height: 100%;
     background-color: #ffffff;
     z-index: 10000;
-    flex-direction: column; /* Stack image and caption vertically */
+    flex-direction: column; 
     justify-content: center; 
     align-items: center;
     opacity: 0;
@@ -90,11 +130,11 @@ body {
     align-items: center;
     justify-content: center;
     width: 100%;
-    flex: 1; /* Occupies available space */
+    flex: 1; 
 }
 
 #modal-img-display {
-    max-height: 65vh; /* Prevents image from taking too much vertical space */
+    max-height: 65vh; 
     max-width: 85vw;
     object-fit: contain;
     transition: opacity 0.25s ease-in-out;
@@ -132,14 +172,14 @@ body {
 /* --- CENTER BOTTOM ALIGNED CAPTION (RESIZABLE) --- */
 .modal-caption {
     width: 100%;
-    padding: 2vh 0 4vh 0; /* Uses vh to scale with screen height */
+    padding: 2vh 0 4vh 0; 
     text-align: center;
-    background: white; /* Ensures it's legible if overlapping happens */
+    background: white; 
 }
 
 #modal-title {
     font-family: 'arial', sans-serif;
-    font-size: clamp(22px, 4vh, 28px); /* Font size responds to screen height */
+    font-size: clamp(22px, 4vh, 28px); 
     margin: 0;
     text-transform: uppercase;
     font-weight: lighter;
@@ -153,26 +193,18 @@ body {
     display: block;
     margin-top: 1vh;
     text-transform: uppercase;
-    /* This makes the color change smooth */
     transition: color 0.3s ease-in-out;     
-    
 }
 
-/* This is the hover state */
 .modal-subheading:hover {
-    color: #0d00ff; /* Changes to blue, or any color you prefer */
-    text-decoration: underline; /* Optional: adds an underline on hover */
+    color: #0d00ff; 
+    text-decoration: underline; 
 }
 
-
-
-
-
-
-/* Layout for Title and Year */
+/* --- ARCHIVE SECTION STYLES (Kept for your archive.html) --- */
 .title-row {
     display: flex;
-    justify-content: space-between; /* Pushes year to the far right */
+    justify-content: space-between; 
     align-items: baseline;
     padding: 15px 0;
 }
@@ -186,16 +218,15 @@ body {
 
 .archive-year {
     font-size: 1.2rem;
-    color: #888; /* Slightly faded like pg-lang */
+    color: #888; 
 }
 
-/* Enhanced Unfolding Animation */
 .content-wrapper {
     display: grid;
     grid-template-rows: 0fr;
-    transition: grid-template-rows 0.6s cubic-bezier(0.33, 1, 0.68, 1); /* Smoother "out" curve */
+    transition: grid-template-rows 0.6s cubic-bezier(0.33, 1, 0.68, 1); 
     overflow: hidden;
-    visibility: hidden; /* Hides media from view entirely */
+    visibility: hidden; 
 }
 
 .archive-item.active .content-wrapper {
@@ -221,7 +252,7 @@ body {
     max-width: 500px;
     opacity: 0;
     transform: translateY(10px);
-    transition: all 0.4s ease 0.2s; /* Delays text until image starts showing */
+    transition: all 0.4s ease 0.2s; 
 }
 
 .archive-item.active .description {
@@ -229,24 +260,13 @@ body {
     transform: translateY(0);
 }
 
-
-
-
-
-
 /* --- PHONE ADAPTATION (ULTRA-BIG) --- */
 @media (max-width: 768px) {
-.card-container {
+    .card-container {
         width: 100vw; 
         max-width: none;
-        
-        /* Perspective tightened for a more dramatic large-scale look */
         perspective: 900px; 
-        
-        /* Increased scale for "Ultra-Big" feel */
         transform: scale(1.4); 
-        
-        /* Increased max-height slightly to accommodate the larger scale */
         max-height: 60vh; 
     }
 
@@ -264,11 +284,12 @@ body {
 
 /* Landscape Mobile / Small Screen Detector */
 @media (max-height: 480px) {
-        body {
-          height: 100vh;
-          width: 100vw;
-          background: url('FOOTAGE/smallscreendetector.jpg') center center / contain no-repeat white !important;
-          overflow: hidden;
-        }
+    body {
+        height: 100vh;
+        width: 100vw;
+        background: url('FOOTAGE/smallscreendetector.jpg') center center / contain no-repeat white !important;
+        overflow: hidden;
+    }
+    
     .card-wrapper { display: none; }
 }
